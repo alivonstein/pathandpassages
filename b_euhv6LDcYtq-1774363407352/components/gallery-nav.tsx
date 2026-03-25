@@ -410,7 +410,7 @@ Participants pay €100/day for room and board plus additional fees for studio u
 Year 1: Average retreat length: 20 days | Studio fees: €400/participant
 • 10-15 participants per retreat | Retreats per year: 6 | Average: 12
 • Revenue per participant: €2.400 (board) + €400 (studio) = €2.800
-• Annual Revenue: 12 × 6 × €2.800 = €201.600
+• Annual Revenue: 12 × 6 × €2.800 = ���201.600
 
 Year 5: Average retreat length: 20 days | Studio fees: €400/participant
 • Retreats per year: 8 | Average participants: 30
@@ -661,8 +661,8 @@ export function GalleryNav() {
       </section>
 
       {/* Mobile: Simple 2-column grid with lightbox */}
-      <section className="md:hidden bg-black pt-1 pb-4">
-        <div className="grid grid-cols-2 gap-1 px-1">
+      <section className="md:hidden bg-black pb-4">
+        <div className="grid grid-cols-2 gap-1 px-1 pt-1">
           {galleryItems.map((item) => (
             <button
               key={item.id}
