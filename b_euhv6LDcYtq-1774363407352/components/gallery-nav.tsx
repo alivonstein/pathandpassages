@@ -1,5 +1,6 @@
 "use client"
-// Gallery component - updated March 2026
+
+// Gallery Navigation Component - Updated
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
