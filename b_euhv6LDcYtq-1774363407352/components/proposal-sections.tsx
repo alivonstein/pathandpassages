@@ -57,7 +57,18 @@ The Science: Evidence of Crisis
   {
     id: "structures-solutions",
     title: "Structures and Solutions",
-    content: "Our retreat structure includes silent morning practices, guided explorations, individual reflection time, and evening community gatherings. We offer various program lengths from weekend intensives to month-long immersions. Each program is carefully designed to meet participants where they are while guiding them toward deeper understanding and practical integration."
+    content: `Our retreat structure includes silent morning practices, guided explorations, individual reflection time, and evening community gatherings. We offer various program lengths from weekend intensives to month-long immersions. Each program is carefully designed to meet participants where they are while guiding them toward deeper understanding and practical integration.
+
+Activities that can be offered for support and structure:
+
+• Hikes and Walks
+• Swimming and Surfing
+• Workshops
+• Active Meditations
+• Hiking, Running, Physical Education and Training
+• Sauna and Sweat Lodge
+• Permaculture Gardening and Food Production
+• Land Art Projects`
   },
   {
     id: "qualification-experience",

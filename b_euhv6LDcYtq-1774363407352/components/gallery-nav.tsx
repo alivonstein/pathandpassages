@@ -269,6 +269,17 @@ Participants shall stay for periods between one and six months.
 
 • Hikes and excursions into the surrounding nature (also overnight).
 
+Activities that can be offered for support and structure:
+
+• Hikes and Walks
+• Swimming and Surfing
+• Workshops
+• Active Meditations
+• Hiking, Running, Physical Education and Training
+• Sauna and Sweat Lodge
+• Permaculture Gardening and Food Production
+• Land Art Projects
+
 ---
 
 Qualification and Experience
