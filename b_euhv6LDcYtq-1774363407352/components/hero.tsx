@@ -8,7 +8,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full bg-black px-1 pt-1 md:px-0 md:pt-0">
       {/* Full edge-to-edge background image - maintains aspect ratio on mobile */}
       <button 
         onClick={handleClick}
