@@ -52,7 +52,7 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
         (trimmedPara.endsWith(':') || 
-         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program|Activities|Ali von Stein|Structures and Solutions)/i) ||
+         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program|Activities|Ali von Stein|Structures and Solutions|Call to Action|Conclusion)/i) ||
          trimmedPara.match(/^\d+\.\s/))
       )
       
@@ -435,7 +435,7 @@ It has evolved into an international hub, a well to tap into for inspired resour
 
 Lives may have changed and masterpieces may have come into existence because of what transpired here and maybe there are also some people who just learned to relax at this place and they kept on coming back.
 
-Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!\`,
+Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!`,
     tables: [
       {
         marker: "[[TABLE_ACTIVITIES]]",
