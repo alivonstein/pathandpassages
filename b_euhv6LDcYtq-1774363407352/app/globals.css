@@ -219,3 +219,10 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
+
+/* Disable hover scale effects on mobile/touch devices */
+@media (hover: none) {
+  .group-hover\:scale-105 {
+    transform: none !important;
+  }
+}
