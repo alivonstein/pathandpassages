@@ -111,7 +111,7 @@ export function Header() {
         </div>
 
         <a
-          href="#footer-contact"
+          href="#contact"
           className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
         >
           get in touch
