@@ -1,5 +1,5 @@
 "use client"
-// Gallery component
+// Gallery component - updated March 2026
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
@@ -49,12 +49,12 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       
       // Check if it's a section header (short line, no bullet, often ends with colon or is title-like)
       // Exclude specific lines that should be small text
-      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability)/i)
+      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
       const isHeader = (
         !isSmallText &&
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
-        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Program and Activities|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
+        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
          trimmedPara.match(/^\d+\.\s/))
       )
       
