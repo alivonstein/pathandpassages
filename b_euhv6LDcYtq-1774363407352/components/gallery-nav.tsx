@@ -63,7 +63,7 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       
       if (isHeader) {
         return (
-          <h3 key={`${blockKey}-${paraIndex}`} className="text-white text-base md:text-lg font-medium mt-8 mb-3 tracking-wide">
+          <h3 key={`${blockKey}-${paraIndex}`} className="text-white text-xl md:text-2xl font-light mt-8 mb-3 tracking-widest">
             {trimmedPara}
           </h3>
         )
@@ -86,13 +86,13 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
         return (
           <div key={`${blockKey}-${paraIndex}`} className="mb-5">
             {introLines.length > 0 && (
-              <p className="text-white/80 text-sm md:text-base mb-3">{introLines.join(' ')}</p>
+              <p className="text-white/80 text-sm md:text-base mb-3 text-justify">{introLines.join(' ')}</p>
             )}
             <ul className="space-y-2 ml-1">
               {bulletItems.map((item, bulletIndex) => (
                 <li key={bulletIndex} className="flex items-start gap-3 text-white/80 text-sm md:text-base">
                   <span className="text-white/50 mt-1 text-[10px]">●</span>
-                  <span>{item}</span>
+                  <span className="text-justify">{item}</span>
                 </li>
               ))}
             </ul>
@@ -102,7 +102,7 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       
       // Regular paragraph
       return (
-        <p key={`${blockKey}-${paraIndex}`} className="text-white/80 text-sm md:text-base mb-4 leading-relaxed">
+        <p key={`${blockKey}-${paraIndex}`} className="text-white/80 text-sm md:text-base mb-4 leading-relaxed text-justify">
           {trimmedPara}
         </p>
       )
