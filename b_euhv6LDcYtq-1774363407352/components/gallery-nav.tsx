@@ -7,10 +7,8 @@ import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-// Inline content to avoid bundling issues
-const projectProposalContent = "The Problem: Context and Pathology\n\nToday's world presents creatives with significant challenges, amplified by the pressures in the complex force fields of urban environments. The contemporary creative economy demands relentless output, subjecting artists, writers, musicians, and performers to unprecedented levels of pressure.\n\nThe full project proposal content is available in the detailed document. This is a summary version for testing purposes.\n\nOur Vision: Path and Passages provides a unique, long-form creative residency in the inspiring landscapes of Northern Spain."
-
-const projectProposalTables: { marker: string; headers: string[]; rows: string[][] }[] = []
+// Import full project proposal content
+import { projectProposalContent, projectProposalTables } from "@/lib/proposal-content"
 
 // Table component for styled tables with alternating colors
 function StyledTable({ headers, rows }: { headers: string[], rows: string[][] }) {
