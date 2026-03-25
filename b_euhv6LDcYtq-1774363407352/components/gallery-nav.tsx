@@ -3,6 +3,7 @@
 // Gallery Navigation Component - Updated
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import { createPortal } from "react-dom"
 import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -554,60 +555,107 @@ function GalleryImage({
   )
 }
 
-export function GalleryNav() {
-  const [hoveredId, setHoveredId] = useState<string | null>(null)
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
-  const [isMounted, setIsMounted] = useState(false)
-
-  // Deferred state setter to avoid Next.js router initialization issues
-  const openLightbox = (item: typeof galleryItems[0]) => {
-    // Use setTimeout to defer state update outside of React's sync cycle
-    setTimeout(() => {
-      setSelectedItem(item)
-    }, 0)
-  }
-
-  const closeLightbox = () => {
-    setTimeout(() => {
-      setSelectedItem(null)
-    }, 0)
-  }
-
-  // Hydration guard - wait until mounted before allowing interactions
+// Simple portal-based modal component
+function LightboxModal({ 
+  item, 
+  onClose 
+}: { 
+  item: typeof galleryItems[0] | null
+  onClose: () => void 
+}) {
+  const [mounted, setMounted] = useState(false)
+  
   useEffect(() => {
-    setIsMounted(true)
+    setMounted(true)
+    return () => setMounted(false)
   }, [])
 
   useEffect(() => {
-    if (!isMounted) return
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeLightbox()
+    if (item) {
+      document.body.style.overflow = 'hidden'
     }
-    window.addEventListener("keydown", handleEscape)
-    return () => window.removeEventListener("keydown", handleEscape)
-  }, [isMounted])
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [item])
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose()
+    }
+    if (item) {
+      window.addEventListener('keydown', handleEscape)
+    }
+    return () => window.removeEventListener('keydown', handleEscape)
+  }, [item, onClose])
+
+  if (!mounted || !item) return null
+
+  return createPortal(
+    <div 
+      className="fixed inset-0 z-50 bg-black overflow-y-auto"
+      onClick={onClose}
+    >
+      <div 
+        className="min-h-screen flex flex-col items-center justify-start pt-16 pb-16 px-8"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Large image with title overlay and X button */}
+        <div className="relative w-full max-w-4xl aspect-[16/10] mb-8">
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover"
+            sizes="100vw"
+          />
+          {/* Gradient overlay for title readability */}
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
+          {/* Title positioned on bottom left corner of image */}
+          <h2 className="absolute bottom-4 left-4 text-xl md:text-2xl text-white font-light tracking-widest">
+            {item.title}
+          </h2>
+          {/* X button positioned on top right corner of image */}
+          <button
+            onClick={onClose}
+            className="absolute top-3 right-3 z-50 bg-black/50 hover:bg-black/70 rounded-full p-2 text-white/90 hover:text-white transition-all"
+            aria-label="Close"
+          >
+            <X size={24} />
+          </button>
+        </div>
+        
+        {/* Content below */}
+        <div className="w-full max-w-3xl">
+          <ContentRenderer content={item.content} tables={item.tables} />
+        </div>
+      </div>
+    </div>,
+    document.body
+  )
+}
+
+export function GalleryNav() {
+  const [hoveredId, setHoveredId] = useState<string | null>(null)
+  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+
+  const openLightbox = (item: typeof galleryItems[0]) => {
+    setSelectedItem(item)
+  }
+
+  const closeLightbox = () => {
+    setSelectedItem(null)
+  }
 
   // Listen for custom event from header menu
   useEffect(() => {
-    if (!isMounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
       const item = galleryItems.find(g => g.id === e.detail)
       if (item) openLightbox(item)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
-  }, [isMounted])
-
-  useEffect(() => {
-    if (selectedItem) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
-    return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [selectedItem])
+  }, [])
 
   // Filter out project-proposal from gallery display (it's accessed via hero and menu only)
   const displayItems = galleryItems.filter(item => item.id !== "project-proposal")
@@ -627,7 +675,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => isMounted && openLightbox(displayItems[rowIndex * 2])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2])}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 49px gap */}
@@ -637,7 +685,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => isMounted && openLightbox(displayItems[rowIndex * 2 + 1])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2 + 1])}
                 />
               </div>
             </div>
@@ -652,7 +700,7 @@ export function GalleryNav() {
           {displayItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => isMounted && openLightbox(item)}
+              onClick={() => openLightbox(item)}
               className="relative aspect-square overflow-hidden group"
             >
               <Image
@@ -672,48 +720,8 @@ export function GalleryNav() {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      {selectedItem && (
-        <div 
-          className="fixed inset-0 z-50 bg-black overflow-y-auto lightbox-scroll"
-          onClick={closeLightbox}
-        >
-          <div 
-            className="min-h-screen flex flex-col items-center justify-start pt-16 pb-16 px-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Large image with title overlay and X button */}
-            <div className="relative w-full max-w-4xl aspect-[16/10] mb-8">
-              <Image
-                src={selectedItem.image}
-                alt={selectedItem.title}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
-              {/* Gradient overlay for title readability */}
-              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
-              {/* Title positioned on bottom left corner of image */}
-              <h2 className="absolute bottom-4 left-4 text-xl md:text-2xl text-white font-light tracking-widest">
-                {selectedItem.title}
-              </h2>
-              {/* X button positioned on top right corner of image */}
-              <button
-                onClick={closeLightbox}
-                className="absolute top-3 right-3 z-50 bg-black/50 hover:bg-black/70 rounded-full p-2 text-white/90 hover:text-white transition-all"
-                aria-label="Close"
-              >
-                <X size={24} />
-              </button>
-            </div>
-            
-            {/* Content below */}
-            <div className="w-full max-w-3xl">
-              <ContentRenderer content={selectedItem.content} tables={selectedItem.tables} />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Lightbox Modal using React Portal */}
+      <LightboxModal item={selectedItem} onClose={closeLightbox} />
     </>
   )
 }

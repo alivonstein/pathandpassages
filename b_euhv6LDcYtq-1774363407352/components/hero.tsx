@@ -1,21 +1,10 @@
 "use client"
 
 import Image from "next/image"
-import { useState, useEffect } from "react"
 
 export function Hero() {
-  const [isMounted, setIsMounted] = useState(false)
-
-  useEffect(() => {
-    setIsMounted(true)
-  }, [])
-
   const handleClick = () => {
-    if (!isMounted) return
-    // Use setTimeout to defer event outside React's sync cycle
-    setTimeout(() => {
-      window.dispatchEvent(new CustomEvent("openLightbox", { detail: "project-proposal" }))
-    }, 0)
+    window.dispatchEvent(new CustomEvent("openLightbox", { detail: "project-proposal" }))
   }
 
   return (
