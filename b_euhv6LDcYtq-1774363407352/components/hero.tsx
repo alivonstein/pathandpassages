@@ -8,11 +8,11 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full bg-black">
+    <section className="relative w-full bg-black m-0 p-0">
       {/* Full edge-to-edge background image - maintains aspect ratio on mobile */}
       <button 
         onClick={handleClick}
-        className="relative w-full cursor-pointer group"
+        className="relative w-full cursor-pointer group block m-0 p-0"
       >
         <Image
           src="/images/hero-landscape.jpg"

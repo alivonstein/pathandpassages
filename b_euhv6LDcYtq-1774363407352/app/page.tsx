@@ -1,7 +1,6 @@
 /**
  * Path and Passages - Retreat Center Proposal
  * A single-page immersive experience for the retreat center proposal
- * Edge-to-edge layout with seamless hero-to-gallery transition
  */
 
 import { Header } from "@/components/header"
@@ -16,7 +15,6 @@ export default function Home() {
       <Header />
       <Hero />
       <GalleryNav />
-      {/* Contact only visible on mobile - image buttons open lightbox on all devices */}
       <div className="md:hidden">
         <Contact />
       </div>
