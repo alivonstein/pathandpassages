@@ -1,5 +1,5 @@
 "use client"
-
+// Gallery component
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
@@ -729,7 +729,7 @@ Participants pay €100/day for room and board plus additional fees for studio u
 Year 1: Average retreat length: 20 days | Studio fees: €400/participant
 • 10-15 participants per retreat | Retreats per year: 6 | Average: 12
 • Revenue per participant: €2.400 (board) + €400 (studio) = €2.800
-• Annual Revenue: 12 × 6 × €2.800 = �������201.600
+• Annual Revenue: 12 × 6 × €2.800 = €201.600
 
 Year 5: Average retreat length: 20 days | Studio fees: €400/participant
 • Retreats per year: 8 | Average participants: 30
