@@ -23,6 +23,11 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -80,6 +85,7 @@ export function Header() {
               {/* Project Proposal - top item */}
               <button
                 onClick={() => {
+                  if (!isMounted) return
                   setIsMenuOpen(false)
                   window.dispatchEvent(new CustomEvent("openLightbox", { detail: topNavItem.id }))
                 }}
@@ -98,6 +104,7 @@ export function Header() {
                 <button
                   key={link.id}
                   onClick={() => {
+                    if (!isMounted) return
                     setIsMenuOpen(false)
                     window.dispatchEvent(new CustomEvent("openLightbox", { detail: link.id }))
                   }}

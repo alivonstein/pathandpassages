@@ -554,24 +554,32 @@ function GalleryImage({
 export function GalleryNav() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Hydration guard - wait until mounted before allowing interactions
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
+    if (!isMounted) return
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelectedItem(null)
     }
     window.addEventListener("keydown", handleEscape)
     return () => window.removeEventListener("keydown", handleEscape)
-  }, [])
+  }, [isMounted])
 
   // Listen for custom event from header menu
   useEffect(() => {
+    if (!isMounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
       const item = galleryItems.find(g => g.id === e.detail)
       if (item) setSelectedItem(item)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
-  }, [])
+  }, [isMounted])
 
   useEffect(() => {
     if (selectedItem) {
@@ -602,7 +610,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => setSelectedItem(displayItems[rowIndex * 2])}
+                  onClick={() => isMounted && setSelectedItem(displayItems[rowIndex * 2])}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 49px gap */}
@@ -612,7 +620,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => setSelectedItem(displayItems[rowIndex * 2 + 1])}
+                  onClick={() => isMounted && setSelectedItem(displayItems[rowIndex * 2 + 1])}
                 />
               </div>
             </div>
@@ -622,12 +630,12 @@ export function GalleryNav() {
       </section>
 
       {/* Mobile: Simple 2-column grid with lightbox */}
-      <section className="md:hidden bg-black pb-4">
+      <section className="md:hidden bg-black pb-4 pt-1">
         <div className="grid grid-cols-2 gap-1 px-1">
           {displayItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => setSelectedItem(item)}
+              onClick={() => isMounted && setSelectedItem(item)}
               className="relative aspect-square overflow-hidden group"
             >
               <Image

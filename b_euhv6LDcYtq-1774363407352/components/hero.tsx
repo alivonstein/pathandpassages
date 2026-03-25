@@ -1,9 +1,17 @@
 "use client"
 
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 export function Hero() {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
   const handleClick = () => {
+    if (!isMounted) return
     window.dispatchEvent(new CustomEvent("openLightbox", { detail: "project-proposal" }))
   }
 
