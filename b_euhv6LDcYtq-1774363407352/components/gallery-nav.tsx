@@ -1,5 +1,5 @@
 "use client"
-// Gallery navigation component
+// Gallery navigation component with lightbox
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
