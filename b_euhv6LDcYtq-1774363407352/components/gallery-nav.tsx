@@ -991,7 +991,7 @@ export function GalleryNav() {
       {/* Lightbox Modal */}
       {selectedItem && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 overflow-y-auto lightbox-scroll"
+          className="fixed inset-0 z-50 bg-black overflow-y-auto lightbox-scroll"
           onClick={() => setSelectedItem(null)}
         >
           <div 
