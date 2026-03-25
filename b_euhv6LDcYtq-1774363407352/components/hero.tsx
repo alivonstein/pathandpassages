@@ -12,7 +12,10 @@ export function Hero() {
 
   const handleClick = () => {
     if (!isMounted) return
-    window.dispatchEvent(new CustomEvent("openLightbox", { detail: "project-proposal" }))
+    // Use setTimeout to defer event outside React's sync cycle
+    setTimeout(() => {
+      window.dispatchEvent(new CustomEvent("openLightbox", { detail: "project-proposal" }))
+    }, 0)
   }
 
   return (

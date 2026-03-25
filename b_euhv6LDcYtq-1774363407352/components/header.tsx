@@ -87,7 +87,9 @@ export function Header() {
                 onClick={() => {
                   if (!isMounted) return
                   setIsMenuOpen(false)
-                  window.dispatchEvent(new CustomEvent("openLightbox", { detail: topNavItem.id }))
+                  setTimeout(() => {
+                    window.dispatchEvent(new CustomEvent("openLightbox", { detail: topNavItem.id }))
+                  }, 0)
                 }}
                 className="text-white/70 hover:text-white text-lg font-normal tracking-widest transition-colors whitespace-nowrap text-left"
               >
@@ -106,7 +108,9 @@ export function Header() {
                   onClick={() => {
                     if (!isMounted) return
                     setIsMenuOpen(false)
-                    window.dispatchEvent(new CustomEvent("openLightbox", { detail: link.id }))
+                    setTimeout(() => {
+                      window.dispatchEvent(new CustomEvent("openLightbox", { detail: link.id }))
+                    }, 0)
                   }}
                   className="text-white/70 hover:text-white text-lg font-normal tracking-widest transition-colors whitespace-nowrap text-left"
                 >

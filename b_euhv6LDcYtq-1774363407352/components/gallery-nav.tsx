@@ -6,7 +6,10 @@ import { useState, useEffect } from "react"
 import { X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import { projectProposalContent, projectProposalTables } from "@/lib/proposal-content"
+// Inline content to avoid bundling issues
+const projectProposalContent = "The Problem: Context and Pathology\n\nToday's world presents creatives with significant challenges, amplified by the pressures in the complex force fields of urban environments. The contemporary creative economy demands relentless output, subjecting artists, writers, musicians, and performers to unprecedented levels of pressure.\n\nThe full project proposal content is available in the detailed document. This is a summary version for testing purposes.\n\nOur Vision: Path and Passages provides a unique, long-form creative residency in the inspiring landscapes of Northern Spain."
+
+const projectProposalTables: { marker: string; headers: string[]; rows: string[][] }[] = []
 
 // Table component for styled tables with alternating colors
 function StyledTable({ headers, rows }: { headers: string[], rows: string[][] }) {
@@ -556,6 +559,20 @@ export function GalleryNav() {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
   const [isMounted, setIsMounted] = useState(false)
 
+  // Deferred state setter to avoid Next.js router initialization issues
+  const openLightbox = (item: typeof galleryItems[0]) => {
+    // Use setTimeout to defer state update outside of React's sync cycle
+    setTimeout(() => {
+      setSelectedItem(item)
+    }, 0)
+  }
+
+  const closeLightbox = () => {
+    setTimeout(() => {
+      setSelectedItem(null)
+    }, 0)
+  }
+
   // Hydration guard - wait until mounted before allowing interactions
   useEffect(() => {
     setIsMounted(true)
@@ -564,7 +581,7 @@ export function GalleryNav() {
   useEffect(() => {
     if (!isMounted) return
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setSelectedItem(null)
+      if (e.key === "Escape") closeLightbox()
     }
     window.addEventListener("keydown", handleEscape)
     return () => window.removeEventListener("keydown", handleEscape)
@@ -575,7 +592,7 @@ export function GalleryNav() {
     if (!isMounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
       const item = galleryItems.find(g => g.id === e.detail)
-      if (item) setSelectedItem(item)
+      if (item) openLightbox(item)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
@@ -610,7 +627,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => isMounted && setSelectedItem(displayItems[rowIndex * 2])}
+                  onClick={() => isMounted && openLightbox(displayItems[rowIndex * 2])}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 49px gap */}
@@ -620,7 +637,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => isMounted && setSelectedItem(displayItems[rowIndex * 2 + 1])}
+                  onClick={() => isMounted && openLightbox(displayItems[rowIndex * 2 + 1])}
                 />
               </div>
             </div>
@@ -635,7 +652,7 @@ export function GalleryNav() {
           {displayItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => isMounted && setSelectedItem(item)}
+              onClick={() => isMounted && openLightbox(item)}
               className="relative aspect-square overflow-hidden group"
             >
               <Image
@@ -659,7 +676,7 @@ export function GalleryNav() {
       {selectedItem && (
         <div 
           className="fixed inset-0 z-50 bg-black overflow-y-auto lightbox-scroll"
-          onClick={() => setSelectedItem(null)}
+          onClick={closeLightbox}
         >
           <div 
             className="min-h-screen flex flex-col items-center justify-start pt-16 pb-16 px-8"
@@ -682,7 +699,7 @@ export function GalleryNav() {
               </h2>
               {/* X button positioned on top right corner of image */}
               <button
-                onClick={() => setSelectedItem(null)}
+                onClick={closeLightbox}
                 className="absolute top-3 right-3 z-50 bg-black/50 hover:bg-black/70 rounded-full p-2 text-white/90 hover:text-white transition-all"
                 aria-label="Close"
               >
