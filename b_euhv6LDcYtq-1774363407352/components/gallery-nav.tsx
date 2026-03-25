@@ -626,6 +626,9 @@ export function GalleryNav() {
     }
   }, [selectedItem])
 
+  // Filter out project-proposal from gallery display (it's accessed via hero and menu only)
+  const displayItems = galleryItems.filter(item => item.id !== "project-proposal")
+
   return (
     <>
       {/* Desktop: 2 columns, 5 rows, identical row heights, varying widths = meandering river gap */}
@@ -637,21 +640,21 @@ export function GalleryNav() {
               {/* Left image - calc width to fill edge to edge with 49px gap */}
               <div style={{ width: `calc((100% - 49px) * ${rowWidths[rowIndex].left / 100})` }} className="h-full">
                 <GalleryImage 
-                  item={galleryItems[rowIndex * 2]} 
+                  item={displayItems[rowIndex * 2]} 
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => setSelectedItem(galleryItems[rowIndex * 2])}
+                  onClick={() => setSelectedItem(displayItems[rowIndex * 2])}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 49px gap */}
               <div style={{ width: `calc((100% - 49px) * ${rowWidths[rowIndex].right / 100})` }} className="h-full">
                 <GalleryImage 
-                  item={galleryItems[rowIndex * 2 + 1]} 
+                  item={displayItems[rowIndex * 2 + 1]} 
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => setSelectedItem(galleryItems[rowIndex * 2 + 1])}
+                  onClick={() => setSelectedItem(displayItems[rowIndex * 2 + 1])}
                 />
               </div>
             </div>
@@ -662,8 +665,8 @@ export function GalleryNav() {
 
       {/* Mobile: Simple 2-column grid with lightbox */}
       <section className="md:hidden bg-black pb-4">
-        <div className="grid grid-cols-2 gap-1 px-1 pt-1">
-          {galleryItems.map((item) => (
+        <div className="grid grid-cols-2 gap-1 px-1">
+          {galleryItems.filter(item => item.id !== "project-proposal").map((item) => (
             <button
               key={item.id}
               onClick={() => setSelectedItem(item)}
