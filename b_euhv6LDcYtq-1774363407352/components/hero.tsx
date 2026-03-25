@@ -29,8 +29,8 @@ export function Hero() {
         <span className="absolute bottom-2 left-1 text-white text-xs font-light tracking-wide md:hidden">
           the project proposal
         </span>
-        {/* Desktop text - visible on hover, aligned with gallery p-4 */}
-        <span className="absolute bottom-4 left-4 text-white text-lg font-normal tracking-widest hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {/* Desktop text - visible on hover, aligned with gallery text below */}
+        <span className="absolute bottom-4 left-6 text-white text-lg font-normal tracking-widest hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           the project proposal
         </span>
       </button>
