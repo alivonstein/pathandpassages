@@ -694,7 +694,7 @@ export function GalleryNav() {
 
       {/* Mobile: Simple 2-column grid with lightbox */}
       <section className="md:hidden bg-black pb-4">
-        <div className="grid grid-cols-2 gap-1 px-1 pt-1">
+        <div className="grid grid-cols-2 gap-1">
           {displayItems.map((item) => (
             <button
               key={item.id}

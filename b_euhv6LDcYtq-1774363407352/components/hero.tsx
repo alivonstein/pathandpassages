@@ -8,7 +8,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full bg-black px-1 pt-1 md:px-0 md:pt-0">
+    <section className="relative w-full bg-black">
       {/* Full edge-to-edge background image - maintains aspect ratio on mobile */}
       <button 
         onClick={handleClick}
@@ -25,8 +25,8 @@ export function Hero() {
         />
         {/* Gradient overlay for text readability */}
         <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        {/* Mobile text - always visible, aligned left to match gallery title text position (px-1 + p-2 = left-3) */}
-        <span className="absolute bottom-2 left-3 text-white text-xs font-light tracking-wide md:hidden">
+        {/* Mobile text - always visible, aligned left to match gallery title text position */}
+        <span className="absolute bottom-2 left-2 text-white text-xs font-light tracking-wide md:hidden">
           the project proposal
         </span>
         {/* Desktop text - visible on hover, centered */}
