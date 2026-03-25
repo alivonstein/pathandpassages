@@ -1,5 +1,5 @@
 "use client"
-// Gallery navigation component with lightbox v2
+
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
@@ -48,11 +48,13 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       const trimmedPara = para.trim()
       
       // Check if it's a section header (short line, no bullet, often ends with colon or is title-like)
+      // Exclude specific lines that should be small text
+      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability)/i)
       const isHeader = (
+        !isSmallText &&
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
-        (trimmedPara.endsWith(':') || 
-         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program and Activities|Ali von Stein|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
+        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Program and Activities|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
          trimmedPara.match(/^\d+\.\s/))
       )
       
@@ -354,9 +356,7 @@ The town of Ribadesella is 15 minutes by car from the location of the premises. 
 
 The closest airports are Santander (SDR) and Asturias (OVD) with Santander airport being 1 1/4 hr and Asturias airport 1 hr by car from our location. Both airports have inexpensive car rental facilities attached.
 
-There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride.
-
-A slow but scenic local train runs along the coast from Santander to Oviedo.
+There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride. A slow but scenic local train runs along the coast from Santander to Oviedo.
 
 Financials: A Strategic Investment
 
@@ -700,9 +700,7 @@ The town of Ribadesella is 15 minutes by car from the location of the premises. 
 
 The closest airports are Santander (SDR) and Asturias (OVD) with Santander airport being 1 1/4 hr and Asturias airport 1 hr by car from our location. Both airports have inexpensive car rental facilities attached.
 
-There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride.
-
-A slow but scenic local train runs along the coast from Santander to Oviedo.`
+There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride. A slow but scenic local train runs along the coast from Santander to Oviedo.`
   },
   {
     id: "financials-growth",
