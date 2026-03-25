@@ -20,7 +20,7 @@ export function Hero() {
           width={1280}
           height={960}
           priority
-          className="w-full h-auto"
+          className="block w-full h-auto"
           sizes="100vw"
         />
         {/* Gradient overlay for text readability */}
