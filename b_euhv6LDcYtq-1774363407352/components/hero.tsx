@@ -23,10 +23,14 @@ export function Hero() {
           className="w-full h-auto"
           sizes="100vw"
         />
-        {/* Gradient overlay for text readability on mobile */}
-        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none md:hidden" />
-        {/* Text on bottom left, aligned with mobile image column (px-1 = 4px padding) */}
+        {/* Gradient overlay for text readability */}
+        <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 via-black/30 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        {/* Mobile text - always visible, aligned with gallery px-1 */}
         <span className="absolute bottom-2 left-1 text-white text-xs font-light tracking-wide md:hidden">
+          the project proposal
+        </span>
+        {/* Desktop text - visible on hover, aligned with gallery p-4 */}
+        <span className="absolute bottom-4 left-4 text-white text-lg font-normal tracking-widest hidden md:block opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           the project proposal
         </span>
       </button>

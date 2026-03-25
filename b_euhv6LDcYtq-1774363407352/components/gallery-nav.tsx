@@ -581,11 +581,11 @@ function GalleryImage({
       />
       <div 
         className={cn(
-          "absolute inset-0 bg-black/60 flex items-center justify-center p-4 transition-opacity duration-300",
+          "absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-4 pt-12 transition-opacity duration-300",
           hoveredId === item.id ? "opacity-100" : "opacity-0"
         )}
       >
-        <span className="text-white text-lg text-center font-normal tracking-widest">
+        <span className="text-white text-lg font-normal tracking-widest">
           {item.title}
         </span>
       </div>
