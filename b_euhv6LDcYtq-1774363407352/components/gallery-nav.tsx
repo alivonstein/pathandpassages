@@ -905,7 +905,9 @@ export function GalleryNav() {
   // Listen for custom event from header menu
   useEffect(() => {
     const handleOpenLightbox = (e: CustomEvent<string>) => {
+      console.log("[v0] openLightbox event received, id:", e.detail)
       const item = galleryItems.find(g => g.id === e.detail)
+      console.log("[v0] Found item:", item?.id, "content length:", item?.content?.length)
       if (item) setSelectedItem(item)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
