@@ -149,6 +149,12 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
 
 export const galleryItems = [
   {
+    id: "project-proposal",
+    title: "project proposal",
+    image: "/images/hero-landscape.jpg",
+    content: ``
+  },
+  {
     id: "problem-science",
     title: "the problem   -   the science",
     image: "/images/gallery-nav-1.jpg",
@@ -655,7 +661,7 @@ export function GalleryNav() {
       </section>
 
       {/* Mobile: Simple 2-column grid with lightbox */}
-      <section className="md:hidden bg-black py-4">
+      <section className="md:hidden bg-black pt-1 pb-4">
         <div className="grid grid-cols-2 gap-1 px-1">
           {galleryItems.map((item) => (
             <button
@@ -670,8 +676,8 @@ export function GalleryNav() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
                 sizes="50vw"
               />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center p-2">
-                <span className="text-white text-xs text-center font-light tracking-wide">
+              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent p-2 pt-8">
+                <span className="text-white text-xs font-light tracking-wide">
                   {item.title}
                 </span>
               </div>

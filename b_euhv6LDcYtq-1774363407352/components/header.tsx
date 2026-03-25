@@ -4,7 +4,9 @@
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
 
-const navLinks = [
+const topNavItem = { id: "project-proposal", label: "project proposal" }
+
+const topicNavLinks = [
   { id: "problem-science", label: "the problem   -   the science" },
   { id: "gap-vision", label: "the gap   -   the vision" },
   { id: "philosophy-model", label: "the philosophy   -   the model" },
@@ -75,7 +77,24 @@ export function Header() {
             )}
           >
             <nav className="flex flex-col items-start gap-3 px-6">
-              {navLinks.map((link) => (
+              {/* Project Proposal - top item */}
+              <button
+                onClick={() => {
+                  setIsMenuOpen(false)
+                  window.dispatchEvent(new CustomEvent("openLightbox", { detail: topNavItem.id }))
+                }}
+                className="text-white/70 hover:text-white text-lg font-normal tracking-widest transition-colors whitespace-nowrap text-left"
+              >
+                {topNavItem.label}
+              </button>
+              
+              {/* Topics header */}
+              <span className="text-white/50 text-sm font-light tracking-widest mt-2">
+                topics
+              </span>
+              
+              {/* Topic links */}
+              {topicNavLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => {
