@@ -52,7 +52,7 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
         (trimmedPara.endsWith(':') || 
-         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program|Activities|Ali von Stein)/i) ||
+         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program|Activities|Ali von Stein|Structures and Solutions)/i) ||
          trimmedPara.match(/^\d+\.\s/))
       )
       
@@ -189,8 +189,6 @@ The creative industries have transitioned into a high-speed, high-volume environ
 
 • The Power of "Unstructured Time": New research into Cognitive Decoupling suggests that deliberate "Downtime" isn't passive; it's a highly active state where the brain reorganises complex information. Without it, creative "breakthroughs" are statistically less likely.
 
----
-
 The Gap: The Solution Lies Deeper
 
 With this awareness, the question arises: Can we reignite artistic growth?
@@ -204,8 +202,6 @@ The Vision: From Goal to Flow
 Paths and Passages provides a unique, long-form creative residency in the inspiring landscapes of Northern Spain. We offer a conscious pause—a holistic solution that de-pressurises the creative process, allowing high-potential talent to reconnect with their original sources.
 
 By introducing a more playful approach to being, living, and working, we offer loose and inviting structures where goal orientation can shift to a more liquid, adaptable approach. "Goals and Targets" are replaced with "Moment to Moment." The collective pressures of ambition, power, and politics are left behind; the participant's inner drive takes over.
-
----
 
 The Model: A Strategic Path
 
@@ -245,8 +241,6 @@ To support the journey, we offer the community a structured yet "liquid" environ
 
 Grounding in these practices creates a doorway to those "unknown spaces" where the best work begins.
 
----
-
 Structures and Solutions
 
 Participants shall stay for periods between one and six months.
@@ -271,16 +265,7 @@ Participants shall stay for periods between one and six months.
 
 Activities that can be offered for support and structure:
 
-• Hikes and Walks
-• Swimming and Surfing
-• Workshops
-• Active Meditations
-• Hiking, Running, Physical Education and Training
-• Sauna and Sweat Lodge
-• Permaculture Gardening and Food Production
-• Land Art Projects
-
----
+[[TABLE_ACTIVITIES]]
 
 Qualification and Experience
 
@@ -300,7 +285,7 @@ Experience as an actor/director
 
 Experience as a meditation teacher
 • Created the Meditation Module N.Y.C. taught active meditation classes there. 2003-07
-• Created the OSHO Meditation Studio Berlin and taught daily active meditation classes there. 2007-19
+��� Created the OSHO Meditation Studio Berlin and taught daily active meditation classes there. 2007-19
 • Osho Meditation Lab Berlin 2019-23
 
 Experience as an entrepreneur
@@ -308,8 +293,6 @@ Experience as an entrepreneur
 • OSHO Studio Berlin 2007-2019
 • Play2C Performing Arts Berlin 2008-2017
 • Tribes of Nothingness Meditation Retreats 2019-22
-
----
 
 Unique Points and Benefits
 
@@ -328,8 +311,6 @@ We understand that the creative process follows a rhythm that cannot be forced, 
 • The Collector State: When an artist is relaxed and "moment-to-moment," they become a magnet for stimuli. A lush flora and the rhythm of the Atlantic are not just scenery; they can become stimuli / raw data for the subconscious to interact.
 
 • Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens—not through effort, but through curiosity.
-
----
 
 Place and Environment
 
@@ -362,8 +343,6 @@ The closest airports are Santander (SDR) and Asturias (OVD) with Santander airpo
 There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride.
 
 A slow but scenic local train runs along the coast from Santander to Oviedo.
-
----
 
 Financials: A Strategic Investment
 
@@ -401,8 +380,6 @@ To address the deficit in early years we are considering additional income strea
 • Grants and Sponsorships: Seek funding from art councils, cultural organisations, or private patrons.
 • Seasonal Tourism Packages: Market facilities for short-term stays in off-seasons.
 • Workshops: Charge external visitors for day-use workshops.
-
----
 
 Benefits and Marketing
 
@@ -446,8 +423,6 @@ Philanthropists often look for "The Big Idea"—something that changes the statu
 
 • Intellectual & Spiritual Return: Philanthropists gain the deep satisfaction of knowing they have fostered a "conscious pause" in a world that is moving too fast, too blind, too unconscious. You can be the financiers and guardians of the "inner silence" required for the world's next great ideas to be born.
 
----
-
 Call to Action
 
 We are seeking your funding/partnership/promotion to expand the reach and impact of "Path and Passages." Your support will enable us to build and provide this vital service to the creative community. If our mission aligns with your goals and aspirations we would be thrilled to discuss possibilities of collaboration. Please contact us to explore this further.
@@ -460,7 +435,23 @@ It has evolved into an international hub, a well to tap into for inspired resour
 
 Lives may have changed and masterpieces may have come into existence because of what transpired here and maybe there are also some people who just learned to relax at this place and they kept on coming back.
 
-Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!`
+Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!\`,
+    tables: [
+      {
+        marker: "[[TABLE_ACTIVITIES]]",
+        headers: ["Activity", "Description"],
+        rows: [
+          ["Hikes and Walks", "Guided and self-directed exploration of the surrounding nature"],
+          ["Swimming and Surfing", "Access to beaches and ocean activities year-round"],
+          ["Workshops", "Skill-building and creative exploration sessions"],
+          ["Active Meditations", "Movement-based meditation practices for clearing body and mind"],
+          ["Physical Education and Training", "Hiking, running, and fitness activities"],
+          ["Sauna and Sweat Lodge", "Traditional heat therapies for relaxation and renewal"],
+          ["Permaculture Gardening", "Hands-on food production and connection to the land"],
+          ["Land Art Projects", "Creative expression through large-scale outdoor installations"]
+        ]
+      }
+    ]
   },
   {
     id: "problem-science",
@@ -606,9 +597,7 @@ Participants shall stay for periods between one and six months.
     id: "qualification-experience",
     title: "qualification and experience",
     image: "/images/gallery-nav-5.jpg",
-    content: `Qualification and Experience
-
-Ali von Stein
+    content: `Ali von Stein
 
 Experience as an artist
 • Graffiti artist NYC, Germany 1983/84
@@ -637,9 +626,7 @@ Experience as an entrepreneur
     id: "unique-points",
     title: "unique points and methods",
     image: "/images/gallery-nav-6.jpg",
-    content: `Unique Points and Benefits
-
-It is perhaps the most crucial part of this proposal - the transition from the "what" to the "why." Our argument is essentially that creativity is not a skill you apply, but a frequency you tune into.
+    content: `It is perhaps the most crucial part of this proposal - the transition from the "what" to the "why." Our argument is essentially that creativity is not a skill you apply, but a frequency you tune into.
 
 By aligning with the "inside-out" approach, we signal to supporters that we are not running a craft camp, but are managing an ecosystem for the human spirit.
 
@@ -659,9 +646,7 @@ We understand that the creative process follows a rhythm that cannot be forced, 
     id: "place-environment",
     title: "place, environment and logistics",
     image: "/images/gallery-nav-7.jpg",
-    content: `Place and Environment
-
-The Location is a patch of paradise on the wild and rugged Asturian coast in the North of Spain. The green hills and mountains form an approximately 30 km wide stretch of coast along the Atlantic Ocean. This is the region where the small town of Ribadesella can be found on the coast at the mouth of a river.
+    content: `The Location is a patch of paradise on the wild and rugged Asturian coast in the North of Spain. The green hills and mountains form an approximately 30 km wide stretch of coast along the Atlantic Ocean. This is the region where the small town of Ribadesella can be found on the coast at the mouth of a river.
 
 Cows graze on its evergreen meadows in the shade of chestnut, oak and eucalyptus trees where fruit, avocados, rosemary, laurel, corn and beans grow abundantly in the fertile soil.
 
@@ -787,9 +772,7 @@ To address the deficit in early years we are considering additional income strea
     id: "marketing-benefits",
     title: "marketing and benefits",
     image: "/images/gallery-nav-9.jpg",
-    content: `Benefits and Marketing
-
-Supporting this project can benefit you in various ways.
+    content: `Supporting this project can benefit you in various ways.
 
 1. Private & Institutional Investors
 
