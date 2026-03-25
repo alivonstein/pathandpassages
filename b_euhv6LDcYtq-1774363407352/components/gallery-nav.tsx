@@ -457,44 +457,7 @@ Now just imagine these are your eyes that are looking back, your funds that made
     id: "problem-science",
     title: "the problem   -   the science",
     image: "/images/gallery-nav-1.jpg",
-    content: `The Problem: Context and Pathology
-
-Today's world presents creatives with significant challenges, amplified by the pressures in the complex force fields of urban environments. The contemporary creative economy demands relentless output, subjecting artists, writers, musicians, and performers to unprecedented levels of pressure. The results often are burnout and creative stagnation.
-
-Existing access to support is limited and often non-aligned with individual needs; hence numerous promising careers stall and sink. We have experienced, researched, and understood the "Creative Pathology" that affects our target group. We are part of it.
-
-The outcome-driven environment of today's marketplace keeps the artist under "Goal-Oriented Pressure" and makes "Creative Flow" elusive. When playfulness, inner silence and the ability to listen are lost, inspiration dries up and creativity shrinks. What used to be a calling starts to feel like a struggle for survival.
-
-The Science: Evidence of Crisis
-
-1. The "Creative Paradox": Scientific literature consistently identifies a "U-shaped" relationship between high creativity and emotional vulnerability.
-
-• Prevalence of Disorders: A landmark study of over 1 million people (S. Kyaga et al. 2012) and subsequent longitudinal follow-ups indicate that creative professionals are 8% to 18% more likely to experience bipolar disorder and depressive episodes compared to the general population.
-
-• The "Openness" Penalty: The personality trait Openness to Experience - essential for artists - is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.
-
-• Performance Anxiety (MPA): Studies on Music Performance Anxiety (MPA) show that up to 70% of professional musicians experience anxiety that impairs their physical ability to perform, leading to a cycle of substance use as a "self-medication" strategy.
-
-2. The Burnout Mechanics (2019–2026): Burnout in the creative sector differs from "white-collar" burnout because the artist's identity is inseparable from their output.
-
-• Identity Fusion: When a project fails or a "block" occurs, the creative professional experiences it as an existential threat, not a professional setback. Research calls this "Self-Complexity Deficit."
-
-• The Gig Economy Stressor: A 2022 study on the "Precariat" (precarious proletariat) in the arts found that the lack of financial predictability triggers the Amygdala (the brain's fear centre) into a state of chronic activation. This inhibits the Prefrontal Cortex, effectively "shutting down" the ability to think divergently or creatively.
-
-• Digital Exhaustion: Recent studies (2024+) on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
-
-3. Professional Challenges: The "Always-On" Culture
-The creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.
-
-[[TABLE_ALWAYS_ON]]
-
-4. The Science of "Regeneration" (The Solution): Studies on Attention Restoration Theory (ART) and Environmental Psychology provide the scientific backing for our approach.
-
-• The "Soft Fascination" Effect: Research shows that "Hard Fascination" (screens, city traffic) exhausts the brain. "Soft Fascination" (looking at the Atlantic Ocean, mountain ridge lines in Asturias/Galicia) allows the Default Mode Network (DMN) to engage. The DMN is the brain state where Incubation and creative "Aha!" moments occur.
-
-• Nature and Neural Plasticity: 90 minutes of walking in a natural environment (vs. urban) results in decreased activity in the subgenual Prefrontal Cortex, the area associated with morbid rumination and depression.
-
-• The Power of "Unstructured Time": New research into Cognitive Decoupling suggests that deliberate "Downtime" isn't passive; it's a highly active state where the brain reorganises complex information. Without it, creative "breakthroughs" are statistically less likely.`,
+    content: "The Problem: Context and Pathology\n\nToday's world presents creatives with significant challenges, amplified by the pressures in the complex force fields of urban environments. The contemporary creative economy demands relentless output, subjecting artists, writers, musicians, and performers to unprecedented levels of pressure. The results often are burnout and creative stagnation.\n\nExisting access to support is limited and often non-aligned with individual needs; hence numerous promising careers stall and sink. We have experienced, researched, and understood the \"Creative Pathology\" that affects our target group. We are part of it.\n\nThe outcome-driven environment of today's marketplace keeps the artist under \"Goal-Oriented Pressure\" and makes \"Creative Flow\" elusive. When playfulness, inner silence and the ability to listen are lost, inspiration dries up and creativity shrinks. What used to be a calling starts to feel like a struggle for survival.\n\nThe Science: Evidence of Crisis\n\n1. The \"Creative Paradox\": Scientific literature consistently identifies a \"U-shaped\" relationship between high creativity and emotional vulnerability.\n\n• Prevalence of Disorders: A landmark study of over 1 million people (S. Kyaga et al. 2012) and subsequent longitudinal follow-ups indicate that creative professionals are 8% to 18% more likely to experience bipolar disorder and depressive episodes compared to the general population.\n\n• The \"Openness\" Penalty: The personality trait Openness to Experience - essential for artists - is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.\n\n• Performance Anxiety (MPA): Studies on Music Performance Anxiety (MPA) show that up to 70% of professional musicians experience anxiety that impairs their physical ability to perform, leading to a cycle of substance use as a \"self-medication\" strategy.\n\n2. The Burnout Mechanics (2019-2026): Burnout in the creative sector differs from \"white-collar\" burnout because the artist's identity is inseparable from their output.\n\n• Identity Fusion: When a project fails or a \"block\" occurs, the creative professional experiences it as an existential threat, not a professional setback. Research calls this \"Self-Complexity Deficit.\"\n\n• The Gig Economy Stressor: A 2022 study on the \"Precariat\" (precarious proletariat) in the arts found that the lack of financial predictability triggers the Amygdala (the brain's fear centre) into a state of chronic activation. This inhibits the Prefrontal Cortex, effectively \"shutting down\" the ability to think divergently or creatively.\n\n• Digital Exhaustion: Recent studies (2024+) on \"Algorithmic Anxiety\" show that the pressure to be constantly visible on social media (The \"Content Treadmill\") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of \"Artistic Self.\"\n\n3. Professional Challenges: The \"Always-On\" Culture\nThe creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.\n\n[[TABLE_ALWAYS_ON]]\n\n4. The Science of \"Regeneration\" (The Solution): Studies on Attention Restoration Theory (ART) and Environmental Psychology provide the scientific backing for our approach.\n\n• The \"Soft Fascination\" Effect: Research shows that \"Hard Fascination\" (screens, city traffic) exhausts the brain. \"Soft Fascination\" (looking at the Atlantic Ocean, mountain ridge lines in Asturias/Galicia) allows the Default Mode Network (DMN) to engage. The DMN is the brain state where Incubation and creative \"Aha!\" moments occur.\n\n• Nature and Neural Plasticity: 90 minutes of walking in a natural environment (vs. urban) results in decreased activity in the subgenual Prefrontal Cortex, the area associated with morbid rumination and depression.\n\n• The Power of \"Unstructured Time\": New research into Cognitive Decoupling suggests that deliberate \"Downtime\" isn't passive; it's a highly active state where the brain reorganises complex information. Without it, creative \"breakthroughs\" are statistically less likely.",
     tables: [
       {
         marker: "[[TABLE_ALWAYS_ON]]",
