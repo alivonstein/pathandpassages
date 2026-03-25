@@ -929,7 +929,7 @@ export function GalleryNav() {
   return (
     <>
       {/* Desktop: 2 columns, 5 rows, identical row heights, varying widths = meandering river gap */}
-      <section className="hidden md:block bg-black pt-2">
+      <section className="hidden md:block bg-black">
         <div className="flex flex-col gap-2">
           {/* 5 rows of identical height */}
           {[0, 1, 2, 3, 4].map((rowIndex) => (
