@@ -1,5 +1,5 @@
 "use client"
-
+// Gallery navigation component
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
@@ -285,7 +285,7 @@ Experience as an actor/director
 
 Experience as a meditation teacher
 • Created the Meditation Module N.Y.C. taught active meditation classes there. 2003-07
-��� Created the OSHO Meditation Studio Berlin and taught daily active meditation classes there. 2007-19
+• Created the OSHO Meditation Studio Berlin and taught daily active meditation classes there. 2007-19
 • Osho Meditation Lab Berlin 2019-23
 
 Experience as an entrepreneur
