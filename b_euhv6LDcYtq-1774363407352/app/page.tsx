@@ -1,6 +1,6 @@
 /**
  * Path and Passages - Retreat Center Proposal
- * A single-page immersive experience for the retreat center proposal
+ * Single-page immersive experience
  */
 
 import { Header } from "@/components/header"
