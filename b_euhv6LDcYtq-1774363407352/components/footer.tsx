@@ -81,12 +81,12 @@ export function Footer() {
 
       {/* Bottom bar with branding */}
       <div className="bg-[#3d4f3a] py-2 w-full px-6 md:px-10 flex items-center justify-between">
-        <a
-          href="#"
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
         >
           pathandpassages
-        </a>
+        </button>
         <p className="text-white text-lg font-medium tracking-widest lowercase">
           asturias, northern spain
         </p>

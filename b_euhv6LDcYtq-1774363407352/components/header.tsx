@@ -43,12 +43,12 @@ export function Header() {
       )}
     >
       <div className="w-full px-6 md:px-10 flex items-center justify-between">
-        <a
-          href="#"
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
         >
           pathandpassages
-        </a>
+        </button>
 
         <div className="relative">
           <button
@@ -110,12 +110,17 @@ export function Header() {
           </div>
         </div>
 
-        <a
-          href="#contact"
+        <button
+          onClick={() => {
+            const contactSection = document.getElementById("contact")
+            if (contactSection) {
+              contactSection.scrollIntoView({ behavior: "smooth" })
+            }
+          }}
           className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
         >
           get in touch
-        </a>
+        </button>
       </div>
     </header>
   )
