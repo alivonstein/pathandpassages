@@ -1,5 +1,5 @@
 "use client"
-// Gallery navigation component with lightbox
+// Gallery component - updated March 2026
 import Image from "next/image"
 import { useState, useEffect } from "react"
 import { X } from "lucide-react"
@@ -48,11 +48,13 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       const trimmedPara = para.trim()
       
       // Check if it's a section header (short line, no bullet, often ends with colon or is title-like)
+      // Exclude specific lines that should be small text
+      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
       const isHeader = (
+        !isSmallText &&
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
-        (trimmedPara.endsWith(':') || 
-         trimmedPara.match(/^(The |Our |A |I+ - |V - |Preparing|Grounding|Budget|Capacity|Experience|Program|Activities|Ali von Stein|Structures and Solutions|Call to Action|Conclusion)/i) ||
+        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
          trimmedPara.match(/^\d+\.\s/))
       )
       
@@ -162,7 +164,8 @@ The outcome-driven environment of today's marketplace keeps the artist under "Go
 
 The Science: Evidence of Crisis
 
-1. The "Creative Paradox": Scientific literature consistently identifies a "U-shaped" relationship between high creativity and emotional vulnerability.
+1. The "Creative Paradox":
+Scientific literature consistently identifies a "U-shaped" relationship between high creativity and emotional vulnerability.
 
 • Prevalence of Disorders: A landmark study of over 1 million people (S. Kyaga et al. 2012) and subsequent longitudinal follow-ups indicate that creative professionals are 8% to 18% more likely to experience bipolar disorder and depressive episodes compared to the general population.
 
@@ -170,7 +173,8 @@ The Science: Evidence of Crisis
 
 • Performance Anxiety (MPA): Studies on Music Performance Anxiety (MPA) show that up to 70% of professional musicians experience anxiety that impairs their physical ability to perform, leading to a cycle of substance use as a "self-medication" strategy.
 
-2. The Burnout Mechanics (2019–2026): Burnout in the creative sector differs from "white-collar" burnout because the artist's identity is inseparable from their output.
+2. The Burnout Mechanics (2019–2026):
+Burnout in the creative sector differs from "white-collar" burnout because the artist's identity is inseparable from their output.
 
 • Identity Fusion: When a project fails or a "block" occurs, the creative professional experiences it as an existential threat, not a professional setback. Research calls this "Self-Complexity Deficit."
 
@@ -181,7 +185,10 @@ The Science: Evidence of Crisis
 3. Professional Challenges: The "Always-On" Culture
 The creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.
 
-4. The Science of "Regeneration" (The Solution): Studies on Attention Restoration Theory (ART) and Environmental Psychology provide the scientific backing for our approach.
+[[TABLE_ALWAYS_ON]]
+
+4. The Science of "Regeneration" (The Solution):
+Studies on Attention Restoration Theory (ART) and Environmental Psychology provide the scientific backing for our approach.
 
 • The "Soft Fascination" Effect: Research shows that "Hard Fascination" (screens, city traffic) exhausts the brain. "Soft Fascination" (looking at the Atlantic Ocean, mountain ridge lines in Asturias/Galicia) allows the Default Mode Network (DMN) to engage. The DMN is the brain state where Incubation and creative "Aha!" moments occur.
 
@@ -263,9 +270,16 @@ Participants shall stay for periods between one and six months.
 
 • Hikes and excursions into the surrounding nature (also overnight).
 
-Activities that can be offered for support and structure:
+Program and Activities - Activities that can be offered for support and structure:
 
-[[TABLE_ACTIVITIES]]
+• Hikes and Walks
+• Swimming and Surfing
+• Workshops
+• Active Meditations
+• Hiking, Running, Physical Education and Training
+• Sauna and Sweat Lodge
+• Permaculture Gardening and Food Production
+• Land Art Projects
 
 Qualification and Experience
 
@@ -322,9 +336,9 @@ The climate is oceanic, with cool summers and mild winters. Temperatures are rar
 
 Surfers from all over the world meet on the beaches all year round attracted by the optimal conditions for their sport.
 
-Different routes of the well known hiking path 'Camino de Santiago" run through this region.
+Different routes of the well known hiking path "Camino de Santiago" run through this region.
 
-An excursion into the mountain range of the "Picos of Europa" that reaches 2500 m above sea level is just an hours drive away.
+An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hours drive away.
 
 The intense flora and the strong contrasts between mountains and coastline make for a rich and stimulating experience of the nature around you.
 
@@ -340,9 +354,7 @@ The town of Ribadesella is 15 minutes by car from the location of the premises. 
 
 The closest airports are Santander (SDR) and Asturias (OVD) with Santander airport being 1 1/4 hr and Asturias airport 1 hr by car from our location. Both airports have inexpensive car rental facilities attached.
 
-There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride.
-
-A slow but scenic local train runs along the coast from Santander to Oviedo.
+There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride. A slow but scenic local train runs along the coast from Santander to Oviedo.
 
 Financials: A Strategic Investment
 
@@ -354,27 +366,40 @@ Budget, Funding and Revenue
 
 I - Capital Expenditures of Set-Up / Start-Up
 
-II - Operating Expenditures
+[[TABLE_CAPITAL]]
+
+II - Operating Expenditures over 5 years
+Including costs for running the retreat, salaries, and maintenance based on starting with 15 participants and growing to 30.
+
+[[TABLE_OPERATING]]
 
 III - Revenue Projections
 
 Participants pay €100/day for room and board plus additional fees for studio use and materials.
 
-Year 1: Average retreat length: 20 days | Studio fees: €400/participant
-• 10-15 participants per retreat | Retreats per year: 6 | Average: 12
-• Revenue per participant: €2.400 (board) + €400 (studio) = €2.800
-• Annual Revenue: 12 × 6 × €2.800 = €201.600
+Year 1:
+• Average retreat length: 20 days
+• Studio/Equipment fees: €400/participant per retreat
+• 10-15 participants per retreat
+• Retreats per year: 6
+• Average participants: 12
+• Revenue per participant (20 days): €2.400 (board) + €400 (studio) = €2.800
+• Annual Revenue: 12 participants × 6 retreats × €2.800 = €201.600
 
-Year 5: Average retreat length: 20 days | Studio fees: €400/participant
+Year 5:
+• Average retreat length: 20 days
+• Studio/Equipment fees: €400/participant per retreat
 • Retreats per year: 8 | Average participants: 30
-• Revenue per participant: €2.400 (board) + €400 (studio) = €2.800
-• Annual Revenue: 30 × 8 × €2.800 = €576.000
+• Revenue per participant (20 days): €2.400 (board) + €400 (studio/equipment) = €2.800
+• Annual Revenue: 30 participants × 8 retreats × €2.800 = €576.000
 
 IV - Growth Plan
 
+[[TABLE_GROWTH]]
+
 V - Sustainability & Additional Revenue Streams
 
-To address the deficit in early years we are considering additional income streams:
+To address the deficit in early years we are considering additional income streams to fall back on if warranted.
 
 • Corporate Retreats: Offer weekend workshops for organisations willing to pay premium rates.
 • Grants and Sponsorships: Seek funding from art councils, cultural organisations, or private patrons.
@@ -438,17 +463,55 @@ Lives may have changed and masterpieces may have come into existence because of 
 Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!`,
     tables: [
       {
-        marker: "[[TABLE_ACTIVITIES]]",
-        headers: ["Activity", "Description"],
+        marker: "[[TABLE_ALWAYS_ON]]",
+        headers: ["Challenge", "Impact on Brain", "Scientific Insight"],
         rows: [
-          ["Hikes and Walks", "Guided and self-directed exploration of the surrounding nature"],
-          ["Swimming and Surfing", "Access to beaches and ocean activities year-round"],
-          ["Workshops", "Skill-building and creative exploration sessions"],
-          ["Active Meditations", "Movement-based meditation practices for clearing body and mind"],
-          ["Physical Education and Training", "Hiking, running, and fitness activities"],
-          ["Sauna and Sweat Lodge", "Traditional heat therapies for relaxation and renewal"],
-          ["Permaculture Gardening", "Hands-on food production and connection to the land"],
-          ["Land Art Projects", "Creative expression through large-scale outdoor installations"]
+          ["Monetization of Self", "Chronic Cortisol Elevation", "Constant self-promotion treats the \"Self\" as a product, leading to Depersonalization."],
+          ["Irregular Circadian Rhythms", "REM Sleep Deprivation", "Performance and production schedules disrupt sleep, which is the primary period for Neural Pruning and creative synthesis."],
+          ["Isolation vs. Scrutiny", "Social Rejection Pain", "Creatives work in isolation (High loneliness) then face instant public critique (High social pain). The brain processes social rejection in the same area as Physical Pain."]
+        ]
+      },
+      {
+        marker: "[[TABLE_CAPITAL]]",
+        headers: ["Item", "Amount"],
+        rows: [
+          ["Purchase of Property and Land", "€ 500.000"],
+          ["Sound Studio", "€ 50.000"],
+          ["Artist Studios", "€ 75.000"],
+          ["Meditation / Dance / Community Space", "€ 60.000"],
+          ["Session Rooms", "€ 30.000"],
+          ["Accommodation (10 double rooms with ensuite bathrooms)", "€ 250.000"],
+          ["Kitchen Equipment", "€ 30.000"],
+          ["Dining Area Furniture", "€ 15.000"],
+          ["Small Van (6-9 Seats)", "€ 40.000"],
+          ["Initial Stock (miscellaneous supplies)", "€ 10.000"],
+          ["Permits and Legal Expenses", "€ 20.000"],
+          ["Marketing and Networking", "€ 25.000"],
+          ["Start-Up & Infrastructure Expenditures", "€ 1.105.000"]
+        ]
+      },
+      {
+        marker: "[[TABLE_OPERATING]]",
+        headers: ["Expense Category", "Year 1", "Year 5"],
+        rows: [
+          ["Salaries (staff, admin, facilitators)", "€ 150.000", "€ 250.000"],
+          ["Utilities and Maintenance", "€ 30.000", "€ 50.000"],
+          ["Food and Supplies", "€ 100.000", "€ 200.000"],
+          ["Transportation", "€ 5.000", "€ 12.000"],
+          ["Marketing / Networking", "€ 20.000", "€ 30.000"],
+          ["Miscellaneous / Maintenance", "€ 20.000", "€ 58.000"],
+          ["Total", "€ 325.000", "€ 600.000"]
+        ]
+      },
+      {
+        marker: "[[TABLE_GROWTH]]",
+        headers: ["Year", "Participants", "Retreats", "Revenue", "Cost", "Net-Profit"],
+        rows: [
+          ["1", "12", "6", "€ 201.600", "€ 325.000", "-€ 123.400"],
+          ["2", "15", "6", "€ 252.000", "€ 365.000", "-€ 113.000"],
+          ["3", "20", "7", "€ 392.000", "€ 410.000", "-€ 18.000"],
+          ["4", "25", "8", "€ 560.000", "€ 450.000", "€ 110.000"],
+          ["5", "30", "8", "€ 672.000", "€ 600.000", "€ 172.000"]
         ]
       }
     ]
@@ -617,9 +680,9 @@ The climate is oceanic, with cool summers and mild winters. Temperatures are rar
 
 Surfers from all over the world meet on the beaches all year round attracted by the optimal conditions for their sport.
 
-Different routes of the well known hiking path 'Camino de Santiago" run through this region.
+Different routes of the well known hiking path "Camino de Santiago" run through this region.
 
-An excursion into the mountain range of the "Picos of Europa" that reaches 2500 m above sea level is just an hours drive away.
+An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hours drive away.
 
 The intense flora and the strong contrasts between mountains and coastline make for a rich and stimulating experience of the nature around you.
 
@@ -635,9 +698,7 @@ The town of Ribadesella is 15 minutes by car from the location of the premises. 
 
 The closest airports are Santander (SDR) and Asturias (OVD) with Santander airport being 1 1/4 hr and Asturias airport 1 hr by car from our location. Both airports have inexpensive car rental facilities attached.
 
-There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride.
-
-A slow but scenic local train runs along the coast from Santander to Oviedo.`
+There are AVE train stops in Oviedo and Gijon connecting Asturias with Madrid by a 3 1/2 hour train ride. A slow but scenic local train runs along the coast from Santander to Oviedo.`
   },
   {
     id: "financials-growth",
@@ -666,7 +727,7 @@ Participants pay €100/day for room and board plus additional fees for studio u
 Year 1: Average retreat length: 20 days | Studio fees: €400/participant
 • 10-15 participants per retreat | Retreats per year: 6 | Average: 12
 • Revenue per participant: €2.400 (board) + €400 (studio) = €2.800
-• Annual Revenue: 12 × 6 × €2.800 = �������201.600
+• Annual Revenue: 12 × 6 × €2.800 = €201.600
 
 Year 5: Average retreat length: 20 days | Studio fees: €400/participant
 • Retreats per year: 8 | Average participants: 30
