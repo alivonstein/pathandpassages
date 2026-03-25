@@ -270,9 +270,7 @@ Participants shall stay for periods between one and six months.
 
 • Hikes and excursions into the surrounding nature (also overnight).
 
-Program and Activities
-
-Activities that can be offered for support and structure:
+Program and Activities - Activities that can be offered for support and structure:
 
 • Hikes and Walks
 • Swimming and Surfing
@@ -338,9 +336,9 @@ The climate is oceanic, with cool summers and mild winters. Temperatures are rar
 
 Surfers from all over the world meet on the beaches all year round attracted by the optimal conditions for their sport.
 
-Different routes of the well known hiking path 'Camino de Santiago" run through this region.
+Different routes of the well known hiking path "Camino de Santiago" run through this region.
 
-An excursion into the mountain range of the "Picos of Europa" that reaches 2500 m above sea level is just an hours drive away.
+An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hours drive away.
 
 The intense flora and the strong contrasts between mountains and coastline make for a rich and stimulating experience of the nature around you.
 
@@ -682,9 +680,9 @@ The climate is oceanic, with cool summers and mild winters. Temperatures are rar
 
 Surfers from all over the world meet on the beaches all year round attracted by the optimal conditions for their sport.
 
-Different routes of the well known hiking path 'Camino de Santiago" run through this region.
+Different routes of the well known hiking path "Camino de Santiago" run through this region.
 
-An excursion into the mountain range of the "Picos of Europa" that reaches 2500 m above sea level is just an hours drive away.
+An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hours drive away.
 
 The intense flora and the strong contrasts between mountains and coastline make for a rich and stimulating experience of the nature around you.
 
