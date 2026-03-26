@@ -10,9 +10,29 @@ export function Footer() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Failed to send:', error)
+    }
+    
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   return (
