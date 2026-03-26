@@ -38,16 +38,16 @@ export function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="py-12 md:py-16 bg-black"
+      className="py-6 md:py-16 bg-black"
     >
-      <div className="container mx-auto px-6 md:px-10 max-w-4xl">
+      <div className="container mx-auto px-4 md:px-10 max-w-4xl">
         <div
           className={`transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
           <div className="max-w-md">
-            <h2 className="text-base md:text-lg text-white font-light tracking-wide mb-1">
+            <h2 className="text-sm md:text-lg text-white/70 font-light tracking-wide mb-1">
               get in touch
             </h2>
             <a
