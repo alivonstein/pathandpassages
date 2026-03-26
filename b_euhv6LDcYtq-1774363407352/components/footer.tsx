@@ -10,9 +10,29 @@ export function Footer() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+      
+      if (response.ok) {
+        setIsSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Failed to send:', error)
+    }
+    
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   return (
@@ -87,9 +107,14 @@ export function Footer() {
         >
           pathandpassages
         </button>
-        <p className="text-white text-lg font-medium tracking-widest lowercase">
+        <a 
+          href="https://www.google.com/maps/place/Asturias,+Spain"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
+        >
           asturias, northern spain
-        </p>
+        </a>
       </div>
     </footer>
   )
