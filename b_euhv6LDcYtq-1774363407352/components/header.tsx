@@ -24,6 +24,16 @@ export function Header() {
   const [isHidden, setIsHidden] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    await new Promise((resolve) => setTimeout(resolve, 1500))
+    setIsSubmitting(false)
+    setIsSubmitted(true)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,26 +132,62 @@ export function Header() {
       {/* Contact Popup */}
       {isContactOpen && (
         <div 
-          className="fixed inset-0 z-[60] flex items-center justify-center"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50"
           onClick={() => setIsContactOpen(false)}
         >
           <div 
-            className="bg-[#3d4f3a] p-8 rounded-sm shadow-2xl max-w-sm mx-4"
+            className="bg-[#3d4f3a] p-6 rounded-sm shadow-2xl max-w-xs mx-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-white text-lg font-light tracking-widest mb-4">get in touch</h3>
+            <h3 className="text-white text-base font-light tracking-widest mb-4">get in touch</h3>
             <a 
               href="mailto:hello@pathandpassages.com"
-              className="block text-white/80 hover:text-white text-sm tracking-wide mb-2 transition-colors"
+              className="block text-white/80 hover:text-white text-sm tracking-wide mb-1 transition-colors"
             >
               hello@pathandpassages.com
             </a>
             <a 
               href="tel:+491781685550"
-              className="block text-white/80 hover:text-white text-sm tracking-wide mb-6 transition-colors"
+              className="block text-white/80 hover:text-white text-sm tracking-wide mb-4 transition-colors"
             >
               +49 178 1685550
             </a>
+            
+            {isSubmitted ? (
+              <p className="text-white/80 text-sm mb-4">Thank you. We will be in touch soon.</p>
+            ) : (
+              <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required
+                  className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-full"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-full"
+                />
+                <textarea
+                  name="message"
+                  placeholder="Message"
+                  required
+                  rows={3}
+                  className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none w-full"
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-white/10 hover:bg-white/20 text-white text-sm px-4 py-2 rounded transition-colors"
+                >
+                  {isSubmitting ? "..." : "Send"}
+                </button>
+              </form>
+            )}
+            
             <button
               onClick={() => setIsContactOpen(false)}
               className="text-white/50 hover:text-white text-xs tracking-widest transition-colors"
