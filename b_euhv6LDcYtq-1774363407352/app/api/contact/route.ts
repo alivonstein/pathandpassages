@@ -19,7 +19,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: 'Path and Passages <hello@pathandpassages.com>',
-        to: ['hello@pathandpassages.com'],
+        to: 'hello@pathandpassages.com',
         reply_to: email,
         subject: `Contact from ${name}`,
         html: `
