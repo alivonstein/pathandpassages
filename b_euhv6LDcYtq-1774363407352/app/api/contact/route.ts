@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: 'Path and Passages <onboarding@resend.dev>',
+      from: 'Path and Passages <hello@pathandpassages.com>',
       to: 'hello@pathandpassages.com',
       replyTo: email,
       subject: `Contact from ${name}`,
