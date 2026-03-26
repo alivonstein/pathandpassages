@@ -1,7 +1,3 @@
-/**
- * Path and Passages - Retreat Center Proposal
- */
-
 import { Header } from "@/components/header"
 import { Hero } from "@/components/hero"
 import { GalleryNav } from "@/components/gallery-nav"
