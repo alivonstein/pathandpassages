@@ -37,7 +37,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-1",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-3",
         isScrolled ? "bg-transparent" : "bg-[#3d4f3a]",
         isHidden && "opacity-0 pointer-events-none"
       )}
@@ -110,17 +110,12 @@ export function Header() {
           </div>
         </div>
 
-        <button
-          onClick={() => {
-            const contactSection = document.getElementById("contact")
-            if (contactSection) {
-              contactSection.scrollIntoView({ behavior: "smooth" })
-            }
-          }}
+        <a
+          href="mailto:hello@pathandpassages.com"
           className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
         >
           get in touch
-        </button>
+        </a>
       </div>
     </header>
   )
