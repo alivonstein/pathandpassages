@@ -636,13 +636,24 @@ function LightboxModal({
 export function GalleryNav() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+  const [isReady, setIsReady] = useState(false)
+
+  // Wait for hydration to complete before allowing interactions
+  useEffect(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        setIsReady(true)
+      })
+    })
+  }, [])
 
   const openLightbox = (item: typeof galleryItems[0]) => {
-    setSelectedItem(item)
+    if (!isReady) return
+    requestAnimationFrame(() => setSelectedItem(item))
   }
 
   const closeLightbox = () => {
-    setSelectedItem(null)
+    requestAnimationFrame(() => setSelectedItem(null))
   }
 
   // Listen for custom event from header menu
