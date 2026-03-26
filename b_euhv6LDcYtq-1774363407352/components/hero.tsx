@@ -8,7 +8,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative w-full bg-black mx-0 mt-0 mb-1 md:mb-0 p-0">
+    <section className="relative w-full bg-black" style={{ marginBottom: '4px' }}>
       {/* Full edge-to-edge background image - maintains aspect ratio on mobile */}
       <button 
         onClick={handleClick}
