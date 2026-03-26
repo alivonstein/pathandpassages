@@ -23,6 +23,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isContactOpen, setIsContactOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -110,13 +111,46 @@ export function Header() {
           </div>
         </div>
 
-        <a
-          href="mailto:hello@pathandpassages.com"
+        <button
+          onClick={() => setIsContactOpen(!isContactOpen)}
           className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
         >
           get in touch
-        </a>
+        </button>
       </div>
+
+      {/* Contact Popup */}
+      {isContactOpen && (
+        <div 
+          className="fixed inset-0 z-[60] flex items-center justify-center"
+          onClick={() => setIsContactOpen(false)}
+        >
+          <div 
+            className="bg-[#3d4f3a] p-8 rounded-sm shadow-2xl max-w-sm mx-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-white text-lg font-light tracking-widest mb-4">get in touch</h3>
+            <a 
+              href="mailto:hello@pathandpassages.com"
+              className="block text-white/80 hover:text-white text-sm tracking-wide mb-2 transition-colors"
+            >
+              hello@pathandpassages.com
+            </a>
+            <a 
+              href="tel:+491781685550"
+              className="block text-white/80 hover:text-white text-sm tracking-wide mb-6 transition-colors"
+            >
+              +49 178 1685550
+            </a>
+            <button
+              onClick={() => setIsContactOpen(false)}
+              className="text-white/50 hover:text-white text-xs tracking-widest transition-colors"
+            >
+              close
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
