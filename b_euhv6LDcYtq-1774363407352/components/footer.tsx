@@ -87,9 +87,14 @@ export function Footer() {
         >
           pathandpassages
         </button>
-        <p className="text-white text-lg font-medium tracking-widest lowercase">
+        <a 
+          href="https://www.google.com/maps/place/Asturias,+Spain"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
+        >
           asturias, northern spain
-        </p>
+        </a>
       </div>
     </footer>
   )
