@@ -4,7 +4,6 @@ import { GalleryNav } from "@/components/gallery-nav"
 import { Contact } from "@/components/contact"
 import { Footer } from "@/components/footer"
 
-// Path and Passages - Main page
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
