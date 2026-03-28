@@ -65,7 +65,7 @@ Activities that can be offered for support and structure:
 • Swimming and Surfing
 • Workshops
 • Active Meditations
-• Hiking, Running, Physical Education and Training
+• Parcours, Running, Physical Education and Training
 • Sauna and Sweat Lodge
 • Permaculture Gardening and Food Production
 • Land Art Projects`
