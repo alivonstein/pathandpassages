@@ -26,7 +26,7 @@ Burnout in the creative sector differs from "white-collar" burnout because the a
 
 • The Gig Economy Stressor: A 2022 study on the "Precariat" (precarious proletariat) in the arts found that the lack of financial predictability triggers the Amygdala (the brain's fear centre) into a state of chronic activation. This inhibits the Prefrontal Cortex, effectively "shutting down" the ability to think divergently or creatively.
 
-• Digital Exhaustion: Recent studies on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
+• Digital Exhaustion: Recent studies on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry, artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
 
 3. Professional Challenges: The "Always-On" Culture
 The creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.
@@ -156,11 +156,11 @@ Experience as an entrepreneur
 
 Unique Points and Benefits
 
-It is perhaps the most crucial part of this proposal - the transition from the "what" to the "why." Our argument is essentially that creativity is not a skill you apply, but a frequency you tune into.
+It is perhaps the most crucial part of this proposal: the transition from the "what" to the "why." Our argument is essentially that creativity is not a skill you apply, but a frequency you tune into.
 
 By aligning with the "inside-out" approach, we signal to supporters that we are not running a craft camp, but are managing an ecosystem for the human spirit.
 
-The Inner Architecture of Invention: Most residencies focus on the output - the book, the painting, the performance. At Path and Passages, we recognise that the work is merely a by-product of a specific state of being.
+The Inner Architecture of Invention: Most residencies focus on the output: the book, the painting, the performance. At Path and Passages, we recognise that the work is merely a by-product of a specific state of being.
 
 Our approach aligns with a growing movement that views the artist as a "vessel." To create something truly new, one must first clear the vessel of the noise, the ego, the marketplace and the "force fields" of contemporary life. Providing a comfortable desk is not sufficient; we provide the conditions for using that comfortable desk with awareness.
 
