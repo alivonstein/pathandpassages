@@ -116,7 +116,7 @@ Participants shall stay for periods between one and six months.
 
 Program and Activities: Activities that can be offered for support and structure:
 
-• Hikes and Walks
+• Hikes and Walks (also overnight)
 • Swimming and Surfing
 • Workshops
 • Active Meditations

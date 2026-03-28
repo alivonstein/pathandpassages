@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -61,7 +61,7 @@ The Science: Evidence of Crisis
 
 Activities that can be offered for support and structure:
 
-• Hikes and Walks
+• Hikes and Walks (also overnight)
 • Swimming and Surfing
 • Workshops
 • Active Meditations
@@ -104,8 +104,14 @@ Activities that can be offered for support and structure:
 
 export function ProposalSections() {
   const [openSection, setOpenSection] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleSection = (id: string) => {
+    if (!mounted) return
     setOpenSection(openSection === id ? null : id)
   }
 
