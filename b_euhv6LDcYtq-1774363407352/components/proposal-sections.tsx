@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -22,7 +22,7 @@ The Science: Evidence of Crisis
 
 • Prevalence of Disorders: A landmark study of over 1 million people (S. Kyaga et al. 2012) and subsequent longitudinal follow-ups indicate that creative professionals are 8% to 18% more likely to experience bipolar disorder and depressive episodes compared to the general population.
 
-• The "Openness" Penalty: The personality trait Openness to Experience - essential for artists - is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.
+• The "Openness" Penalty: The personality trait Openness to Experience, essential for artists, is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.
 
 • Performance Anxiety (MPA): Studies on Music Performance Anxiety (MPA) show that up to 70% of professional musicians experience anxiety that impairs their physical ability to perform, leading to a cycle of substance use as a "self-medication" strategy.
 
@@ -32,7 +32,7 @@ The Science: Evidence of Crisis
 
 • The Gig Economy Stressor: A 2022 study on the "Precariat" (precarious proletariat) in the arts found that the lack of financial predictability triggers the Amygdala (the brain's fear center) into a state of chronic activation. This inhibits the Prefrontal Cortex, effectively "shutting down" the ability to think divergently or creatively.
 
-• Digital Exhaustion: Recent studies (2024+) on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
+• Digital Exhaustion: Recent studies (2024+) on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry, artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
 
 3. Professional Challenges: The "Always-On" Culture - The creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.
 
@@ -61,11 +61,11 @@ The Science: Evidence of Crisis
 
 Activities that can be offered for support and structure:
 
-• Hikes and Walks
+• Hikes and Walks (also overnight)
 • Swimming and Surfing
 • Workshops
 • Active Meditations
-• Hiking, Running, Physical Education and Training
+• Parcours, Running, Physical Education and Training
 • Sauna and Sweat Lodge
 • Permaculture Gardening and Food Production
 • Land Art Projects`
@@ -104,8 +104,14 @@ Activities that can be offered for support and structure:
 
 export function ProposalSections() {
   const [openSection, setOpenSection] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const toggleSection = (id: string) => {
+    if (!mounted) return
     setOpenSection(openSection === id ? null : id)
   }
 
