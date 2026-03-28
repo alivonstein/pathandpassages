@@ -33,8 +33,14 @@ const experiences = [
 export function Experience() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -49,7 +55,7 @@ export function Experience() {
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [mounted])
 
   return (
     <section

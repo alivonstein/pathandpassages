@@ -8,8 +8,14 @@ export function Contact() {
   const [isVisible, setIsVisible] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -24,10 +30,11 @@ export function Contact() {
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [mounted])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!mounted) return
     setIsSubmitting(true)
     await new Promise((resolve) => setTimeout(resolve, 1500))
     setIsSubmitting(false)

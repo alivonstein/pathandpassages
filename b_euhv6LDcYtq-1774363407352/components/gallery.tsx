@@ -33,8 +33,14 @@ export function Gallery() {
   const [isVisible, setIsVisible] = useState(false)
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -49,15 +55,17 @@ export function Gallery() {
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [mounted])
 
   const openLightbox = (index: number) => {
+    if (!mounted) return
     setCurrentIndex(index)
     setLightboxOpen(true)
     document.body.style.overflow = "hidden"
   }
 
   const closeLightbox = () => {
+    if (!mounted) return
     setLightboxOpen(false)
     document.body.style.overflow = "auto"
   }
