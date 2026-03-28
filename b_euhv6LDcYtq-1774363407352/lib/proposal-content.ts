@@ -15,18 +15,18 @@ Scientific literature consistently identifies a "U-shaped" relationship between 
 
 • Prevalence of Disorders: A landmark study of over 1 million people (S. Kyaga et al. 2012) and subsequent longitudinal follow-ups indicate that creative professionals are 8% to 18% more likely to experience bipolar disorder and depressive episodes compared to the general population.
 
-• The "Openness" Penalty: The personality trait Openness to Experience - essential for artists - is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.
+• The "Openness" Penalty: The personality trait Openness to Experience, essential for artists, is statistically correlated with thin boundaries, meaning creatives absorb environmental stress and emotional stimuli more deeply than the average worker.
 
 • Performance Anxiety (MPA): Studies on Music Performance Anxiety (MPA) show that up to 70% of professional musicians experience anxiety that impairs their physical ability to perform, leading to a cycle of substance use as a "self-medication" strategy.
 
-2. The Burnout Mechanics (2019-2026):
+2. The Burnout Mechanics (2019–2026):
 Burnout in the creative sector differs from "white-collar" burnout because the artist's identity is inseparable from their output.
 
 • Identity Fusion: When a project fails or a "block" occurs, the creative professional experiences it as an existential threat, not a professional setback. Research calls this "Self-Complexity Deficit."
 
 • The Gig Economy Stressor: A 2022 study on the "Precariat" (precarious proletariat) in the arts found that the lack of financial predictability triggers the Amygdala (the brain's fear centre) into a state of chronic activation. This inhibits the Prefrontal Cortex, effectively "shutting down" the ability to think divergently or creatively.
 
-• Digital Exhaustion: Recent studies (2024+) on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
+• Digital Exhaustion: Recent studies on "Algorithmic Anxiety" show that the pressure to be constantly visible on social media (The "Content Treadmill") has created a new subset of burnout characterised by Creative Mimicry - artists stop innovating and start imitating what the algorithm rewards, leading to a loss of "Artistic Self."
 
 3. Professional Challenges: The "Always-On" Culture
 The creative industries have transitioned into a high-speed, high-volume environment that is biologically unsustainable.
@@ -38,7 +38,7 @@ Studies on Attention Restoration Theory (ART) and Environmental Psychology provi
 
 • The "Soft Fascination" Effect: Research shows that "Hard Fascination" (screens, city traffic) exhausts the brain. "Soft Fascination" (looking at the Atlantic Ocean, mountain ridge lines in Asturias/Galicia) allows the Default Mode Network (DMN) to engage. The DMN is the brain state where Incubation and creative "Aha!" moments occur.
 
-• Nature and Neural Plasticity: 90 minutes of walking in a natural environment (vs. urban) results in decreased activity in the subgenual Prefrontal Cortex, the area associated with morbid rumination and depression.
+• Nature and Neural Plasticity: 90 minutes of walking in a natural environment versus urban results in decreased activity in the subgenual Prefrontal Cortex, the area associated with morbid rumination and depression.
 
 • The Power of "Unstructured Time": New research into Cognitive Decoupling suggests that deliberate "Downtime" isn't passive; it's a highly active state where the brain reorganises complex information. Without it, creative "breakthroughs" are statistically less likely.
 
@@ -84,7 +84,7 @@ A Breathing Infrastructure
 
 To support the journey, we offer the community a structured yet "liquid" environment:
 
-• Integrated Support: Optional activities (i.e. active meditation, community work, and small workshops) run in the background as resources to be tapped into whenever needed. Individual programs can be tailored for the individual.
+• Integrated Support: Optional activities (such as active meditation, community work, and small workshops) run in the background as resources to be tapped into whenever needed. Individual programs can be tailored for the individual.
 
 • Professional Facilities: High-quality studios designed for deep work, ensuring the physical workspace is as primed as the mind. They can change and adapt to the individual needs of our guests.
 
@@ -102,7 +102,7 @@ Participants shall stay for periods between one and six months.
 
 • Comfortable accommodations with private and communal living spaces. The living quarters will have attached bathrooms with showers.
 
-• The professional facilities need to adapt to the requirements of the artists - fully-equipped studios and performance spaces.
+• The professional facilities need to adapt to the requirements of the artists: fully-equipped studios and performance spaces.
 
 • An offering of regular active meditation sessions to clear body and mind led by experienced facilitators.
 
@@ -116,7 +116,7 @@ Participants shall stay for periods between one and six months.
 
 • Hikes and excursions into the surrounding nature (also overnight).
 
-Program and Activities - Activities that can be offered for support and structure:
+Program and Activities: Activities that can be offered for support and structure:
 
 • Hikes and Walks
 • Swimming and Surfing
@@ -160,7 +160,7 @@ It is perhaps the most crucial part of this proposal - the transition from the "
 
 By aligning with the "inside-out" approach, we signal to supporters that we are not running a craft camp, but are managing an ecosystem for the human spirit.
 
-The Inner Architecture of Invention . . . most residencies focus on the output - the book, the painting, the performance. At Path and Passages, we recognise that the work is merely a by-product of a specific state of being.
+The Inner Architecture of Invention: Most residencies focus on the output - the book, the painting, the performance. At Path and Passages, we recognise that the work is merely a by-product of a specific state of being.
 
 Our approach aligns with a growing movement that views the artist as a "vessel." To create something truly new, one must first clear the vessel of the noise, the ego, the marketplace and the "force fields" of contemporary life. Providing a comfortable desk is not sufficient; we provide the conditions for using that comfortable desk with awareness.
 
@@ -168,7 +168,7 @@ We understand that the creative process follows a rhythm that cannot be forced, 
 
 • The Void (Nothingness): Many artists fear the empty space. We celebrate it. By using Active Meditation and nature immersion, we help artists become comfortable in the "stillness" where original ideas actually begin.
 
-• The Collector State: When an artist is relaxed and "moment-to-moment," they become a magnet for stimuli. A lush flora and the rhythm of the Atlantic are not just scenery; they can become stimuli / raw data for the subconscious to interact.
+• The Collector State: When an artist is relaxed and "moment-to-moment," they become a magnet for stimuli. A lush flora and the rhythm of the Atlantic are not just scenery; they become raw data for the subconscious to interact with.
 
 • Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens—not through effort, but through curiosity.
 
@@ -190,7 +190,7 @@ The intense flora and the strong contrasts between mountains and coastline make 
 
 The choice of Northern Spain, specifically the area around Ribadesella is a practical one. The climate creates a lush, evergreen environment that feels alive year-round. There is a specific kind of energy in a place where high mountains meet the ocean and the stark contrasts within the landscape makes for an ongoing immersive experience.
 
-The fertile soil allows us to grow our own food using permaculture methods, ensuring that what the artists eat is as restorative as the air they breathe. This connection to the land - harvesting vegetables or participating in Land Art projects grounds the creative process in something tangible and real facilitating a shift from the "survival mode" and into a "creative mode" fuelled by the natural rhythms of the coast.
+The fertile soil allows us to grow our own food using permaculture methods, ensuring that what the artists eat is as restorative as the air they breathe. This connection to the land, harvesting vegetables or participating in Land Art projects, grounds the creative process in something tangible and real facilitating a shift from the "survival mode" and into a "creative mode" fuelled by the natural rhythms of the coast.
 
 Capacity and Logistics
 
@@ -306,7 +306,7 @@ It has evolved into an international hub, a well to tap into for inspired resour
 
 Lives may have changed and masterpieces may have come into existence because of what transpired here and maybe there are also some people who just learned to relax at this place and they kept on coming back.
 
-Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely . . . and doable!`
+Now just imagine these are your eyes that are looking back, your funds that made things possible, your voice that spoke up and supported us and your hands that helped build this project - wouldn't that be lovely... and doable!`
 
 export const projectProposalTables = [
   {
@@ -352,7 +352,7 @@ export const projectProposalTables = [
   },
   {
     marker: "[[TABLE_GROWTH]]",
-    headers: ["Year", "Participants", "Retreats", "Revenue", "Cost", "Net-Profit"],
+    headers: ["Year", "Participants", "Retreats", "Revenue", "Cost", "Net Profit"],
     rows: [
       ["1", "12", "6", "201.600 Euro", "325.000 Euro", "-123.400 Euro"],
       ["2", "15", "6", "252.000 Euro", "365.000 Euro", "-113.000 Euro"],
