@@ -114,8 +114,6 @@ Participants shall stay for periods between one and six months.
 
 • Tailored programs for different types of creatives (artists, actors, musicians, dancers, writers) (phase 2)
 
-• Hikes and excursions into the surrounding nature (also overnight).
-
 Program and Activities: Activities that can be offered for support and structure:
 
 • Hikes and Walks

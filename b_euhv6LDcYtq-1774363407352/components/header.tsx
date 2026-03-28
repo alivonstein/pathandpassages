@@ -26,6 +26,11 @@ export function Header() {
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -56,6 +61,7 @@ export function Header() {
   }
 
   useEffect(() => {
+    if (!mounted) return
     const handleScroll = () => {
       const heroHeight = window.innerHeight * 0.6
       setIsScrolled(window.scrollY > 50)
@@ -63,7 +69,7 @@ export function Header() {
     }
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [mounted])
 
   return (
     <header
