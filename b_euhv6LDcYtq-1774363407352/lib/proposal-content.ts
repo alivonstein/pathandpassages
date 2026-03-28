@@ -46,13 +46,13 @@ The Gap: The Solution Lies Deeper
 
 With this awareness, the question arises: Can we reignite artistic growth?
 
-Traditional retreats-often characterised by rigid schedules and inadequate facilities-fail to address the core issue. When creatives perceive their activities as "Work," with all the judgments that entails, any structure that forces them into new activities in the name of creativity (like a mandatory painting course) will just be experienced as more "Work."
+Traditional retreats, often characterised by rigid schedules and inadequate facilities, fail to address the core issue. When creatives perceive their activities as "Work," with all the judgments that entails, any structure that forces them into new activities in the name of creativity (like a mandatory painting course) will just be experienced as more "Work."
 
-The artist's way is, to a degree, a path of aloneness-in a positive sense. The idea is to operate in an atmosphere where one feels safe to unwind, to let go of the constructs of one's life as "someone", and to just be.
+The artist's way is, to a degree, a path of aloneness, in a positive sense. The idea is to operate in an atmosphere where one feels safe to unwind, to let go of the constructs of one's life as "someone", and to just be.
 
 The Vision: From Goal to Flow
 
-Paths and Passages provides a unique, long-form creative residency in the inspiring landscapes of Northern Spain. We offer a conscious pause-a holistic solution that de-pressurises the creative process, allowing high-potential talent to reconnect with their original sources.
+Paths and Passages provides a unique, long-form creative residency in the inspiring landscapes of Northern Spain. We offer a conscious pause, a holistic solution that de-pressurises the creative process, allowing high-potential talent to reconnect with their original sources.
 
 By introducing a more playful approach to being, living, and working, we offer loose and inviting structures where goal orientation can shift to a more liquid, adaptable approach. "Goals and Targets" are replaced with "Moment to Moment." The collective pressures of ambition, power, and politics are left behind; the participant's inner drive takes over.
 
@@ -170,7 +170,7 @@ We understand that the creative process follows a rhythm that cannot be forced, 
 
 • The Collector State: When an artist is relaxed and "moment-to-moment," they become a magnet for stimuli. A lush flora and the rhythm of the Atlantic are not just scenery; they become raw data for the subconscious to interact with.
 
-• Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens-not through effort, but through curiosity.
+• Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens, not through effort, but through curiosity.
 
 Place and Environment
 
@@ -288,7 +288,7 @@ For the successful artist who has "made it," this is an opportunity to build the
 
 4. Philanthropists: Visionary Contribution
 
-Philanthropists often look for "The Big Idea"—something that changes the status quo.
+Philanthropists often look for "The Big Idea", something that changes the status quo.
 
 • A New Model for Living: This project is a lighthouse showing an alternative path for the human condition. It can serve as a blueprint for how humans can live and work in the 21st century.
 

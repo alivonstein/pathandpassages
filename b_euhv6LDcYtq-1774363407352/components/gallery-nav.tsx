@@ -311,7 +311,7 @@ We understand that the creative process follows a rhythm that cannot be forced, 
 
 • The Collector State: When an artist is relaxed and "moment-to-moment," they become a magnet for stimuli. A lush flora and the rhythm of the Atlantic are not just scenery; they can become stimuli / raw data for the subconscious to interact.
 
-• Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens—not through effort, but through curiosity.`
+• Craft as Play: When the pressure of "Work" is removed, the studio becomes a place of play. This is where invention happens, not through effort, but through curiosity.`
   },
   {
     id: "place-environment",
@@ -333,7 +333,7 @@ The intense flora and the strong contrasts between mountains and coastline make 
 
 The choice of Northern Spain, specifically the area around Ribadesella is a practical one. The climate creates a lush, evergreen environment that feels alive year-round. There is a specific kind of energy in a place where high mountains meet the ocean and the stark contrasts within the landscape makes for an ongoing immersive experience.
 
-The fertile soil allows us to grow our own food using permaculture methods, ensuring that what the artists eat is as restorative as the air they breathe. This connection to the land - harvesting vegetables or participating in Land Art projects grounds the creative process in something tangible and real facilitating a shift from the "survival mode" and into a "creative mode" fuelled by the natural rhythms of the coast.
+The fertile soil allows us to grow our own food using permaculture methods, ensuring that what the artists eat is as restorative as the air they breathe. This connection to the land, harvesting vegetables or participating in Land Art projects, grounds the creative process in something tangible and real facilitating a shift from the "survival mode" and into a "creative mode" fuelled by the natural rhythms of the coast.
 
 Capacity and Logistics
 
