@@ -260,7 +260,17 @@ Participants shall stay for periods between one and six months.
 
 • Supportive environment (mentorship, workshops, meditation, wild natural environment, networking opportunities)
 
-• Tailored programs for different types of creatives (artists, actors, musicians, dancers, writers) (phase 2)`
+• Tailored programs for different types of creatives (artists, actors, musicians, dancers, writers) (phase 2)
+
+Program and Activities: Activities that can be offered for support and structure:
+• Hikes and Walks (also overnight)
+• Swimming and Surfing
+• Workshops
+• Active Meditations
+• Hiking, Running, Physical Education and Training
+• Sauna and Sweat Lodge
+• Permaculture Gardening and Food Production
+• Land Art Projects`
   },
   {
     id: "qualification-experience",
