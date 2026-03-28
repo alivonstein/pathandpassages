@@ -327,7 +327,7 @@ Surfers from all over the world meet on the beaches all year round attracted by 
 
 Different routes of the well known hiking path "Camino de Santiago" run through this region.
 
-An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hours drive away.
+An excursion into the mountain range of the "Picos de Europa" that reaches 2500 m above sea level is just an hour's drive away.
 
 The intense flora and the strong contrasts between mountains and coastline make for a rich and stimulating experience of the nature around you.
 
