@@ -638,7 +638,6 @@ export function GalleryNav() {
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
 
   const openLightbox = (item: typeof galleryItems[0]) => {
-    console.log("[v0] openLightbox called with item:", item?.id)
     setSelectedItem(item)
   }
 
