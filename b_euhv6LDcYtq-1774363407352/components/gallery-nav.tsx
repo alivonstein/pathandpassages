@@ -636,24 +636,32 @@ function LightboxModal({
 export function GalleryNav() {
   const [hoveredId, setHoveredId] = useState<string | null>(null)
   const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const openLightbox = (item: typeof galleryItems[0]) => {
+    if (!mounted) return
     setSelectedItem(item)
   }
 
   const closeLightbox = () => {
+    if (!mounted) return
     setSelectedItem(null)
   }
 
   // Listen for custom event from header menu
   useEffect(() => {
+    if (!mounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
       const item = galleryItems.find(g => g.id === e.detail)
       if (item) openLightbox(item)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
-  }, [])
+  }, [mounted])
 
   // Filter out project-proposal from gallery display (it's accessed via hero and menu only)
   const displayItems = galleryItems.filter(item => item.id !== "project-proposal")
