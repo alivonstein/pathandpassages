@@ -687,9 +687,9 @@ export function GalleryNav() {
         <div className="flex flex-col gap-2">
           {/* 5 rows of identical height */}
           {[0, 1, 2, 3, 4].map((rowIndex) => (
-            <div key={rowIndex} className="flex h-[350px]" style={{ gap: '49px' }}>
-              {/* Left image - calc width to fill edge to edge with 49px gap */}
-              <div style={{ width: `calc((100% - 49px) * ${rowWidths[rowIndex].left / 100})` }} className="h-full">
+            <div key={rowIndex} className="flex h-[350px]" style={{ gap: '8px' }}>
+              {/* Left image - calc width to fill edge to edge with 8px gap */}
+              <div style={{ width: `calc((100% - 8px) * ${rowWidths[rowIndex].left / 100})` }} className="h-full">
                 <GalleryImage 
                   item={displayItems[rowIndex * 2]} 
                   className="w-full h-full"
@@ -698,8 +698,8 @@ export function GalleryNav() {
                   onClick={() => openLightbox(displayItems[rowIndex * 2])}
                 />
               </div>
-              {/* Right image - calc width to fill edge to edge with 49px gap */}
-              <div style={{ width: `calc((100% - 49px) * ${rowWidths[rowIndex].right / 100})` }} className="h-full">
+              {/* Right image - calc width to fill edge to edge with 8px gap */}
+              <div style={{ width: `calc((100% - 8px) * ${rowWidths[rowIndex].right / 100})` }} className="h-full">
                 <GalleryImage 
                   item={displayItems[rowIndex * 2 + 1]} 
                   className="w-full h-full"
