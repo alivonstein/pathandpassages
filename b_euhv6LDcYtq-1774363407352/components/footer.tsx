@@ -10,6 +10,7 @@ export function Footer() {
   const t = uiStrings[lang]
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -20,12 +21,14 @@ export function Footer() {
     e.preventDefault()
     if (!mounted) return
     setIsSubmitting(true)
+    setHasError(false)
     
     const formData = new FormData(e.currentTarget)
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
+      lang,
     }
 
     try {
@@ -37,9 +40,12 @@ export function Footer() {
       
       if (response.ok) {
         setIsSubmitted(true)
+      } else {
+        setHasError(true)
       }
     } catch (error) {
       console.error('Failed to send:', error)
+      setHasError(true)
     }
     
     setIsSubmitting(false)
@@ -74,6 +80,10 @@ export function Footer() {
           {isSubmitted ? (
             <p className="text-white text-sm">{t.thankYouShort}</p>
           ) : (
+            <div className="flex flex-col gap-2">
+            {hasError && (
+              <p className="text-red-300 text-xs">{t.sendError}</p>
+            )}
             <form onSubmit={handleSubmit} className="flex items-start gap-3">
               <input
                 type="text"
@@ -105,6 +115,7 @@ export function Footer() {
                 {isSubmitting ? "..." : t.send}
               </Button>
             </form>
+            </div>
           )}
         </div>
       </div>

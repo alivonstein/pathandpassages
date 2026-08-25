@@ -16,6 +16,7 @@ type UIStrings = {
   thankYouShort: string
   thankYouTitle: string
   thankYouBody: string
+  sendError: string
   close: string
   location: string
   toggleMenu: string
@@ -38,6 +39,7 @@ export const uiStrings: Record<Lang, UIStrings> = {
     thankYouShort: "Thank you. We will be in touch soon.",
     thankYouTitle: "Thank You",
     thankYouBody: "We will be in touch soon.",
+    sendError: "Something went wrong. Please try again or email us directly.",
     close: "close",
     location: "asturias, northern spain",
     toggleMenu: "Toggle menu",
@@ -57,6 +59,7 @@ export const uiStrings: Record<Lang, UIStrings> = {
     thankYouShort: "Gracias. Nos pondremos en contacto pronto.",
     thankYouTitle: "Gracias",
     thankYouBody: "Nos pondremos en contacto pronto.",
+    sendError: "Algo salió mal. Inténtalo de nuevo o escríbenos directamente.",
     close: "cerrar",
     location: "asturias, norte de españa",
     toggleMenu: "Abrir menú",

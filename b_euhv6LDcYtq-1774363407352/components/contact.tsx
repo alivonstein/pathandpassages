@@ -12,6 +12,7 @@ export function Contact() {
   const [isVisible, setIsVisible] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -40,9 +41,34 @@ export function Contact() {
     e.preventDefault()
     if (!mounted) return
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    setHasError(false)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      lang,
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        setHasError(true)
+      }
+    } catch (error) {
+      console.error('Failed to send:', error)
+      setHasError(true)
+    }
+
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   return (
@@ -132,6 +158,10 @@ export function Contact() {
                     className="w-full bg-transparent border border-white/20 rounded px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none"
                   />
                 </div>
+
+                {hasError && (
+                  <p className="text-red-300 text-sm">{t.sendError}</p>
+                )}
 
                 <Button
                   type="submit"

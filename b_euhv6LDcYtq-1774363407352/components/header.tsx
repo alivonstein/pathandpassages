@@ -17,6 +17,7 @@ export function Header() {
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -26,12 +27,14 @@ export function Header() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setHasError(false)
     
     const formData = new FormData(e.currentTarget)
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
+      lang,
     }
 
     try {
@@ -43,9 +46,12 @@ export function Header() {
       
       if (response.ok) {
         setIsSubmitted(true)
+      } else {
+        setHasError(true)
       }
     } catch (error) {
       console.error('Failed to send:', error)
+      setHasError(true)
     }
     
     setIsSubmitting(false)
@@ -213,6 +219,9 @@ export function Header() {
                   rows={3}
                   className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none w-full"
                 />
+                {hasError && (
+                  <p className="text-red-300 text-xs">{t.sendError}</p>
+                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
