@@ -79,7 +79,7 @@ export function Header() {
       <div className="w-full px-6 md:px-10 flex items-center justify-between">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
+          className="text-white text-base md:text-lg font-medium tracking-wide md:tracking-widest lowercase hover:opacity-80 transition-opacity"
         >
           pathandpassages
         </button>
@@ -144,18 +144,18 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-4 md:gap-6">
+        <div className="flex items-center gap-3 md:gap-6">
           {/* Language toggle */}
           <button
             onClick={toggleLang}
             aria-label={t.switchToLabel}
             title={t.switchToLabel}
-            className="flex items-center text-sm font-medium tracking-widest uppercase select-none"
+            className="flex items-center text-xs md:text-sm font-medium tracking-wider md:tracking-widest uppercase select-none shrink-0"
           >
             <span className={cn("transition-opacity", lang === "en" ? "text-white" : "text-white/40 hover:text-white/70")}>
               EN
             </span>
-            <span className="text-white/30 mx-1">/</span>
+            <span className="text-white/30 mx-0.5 md:mx-1">/</span>
             <span className={cn("transition-opacity", lang === "es" ? "text-white" : "text-white/40 hover:text-white/70")}>
               ES
             </span>
@@ -163,7 +163,7 @@ export function Header() {
 
           <button
             onClick={() => setIsContactOpen(!isContactOpen)}
-            className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
+            className="text-white text-base md:text-lg font-medium tracking-wide hover:opacity-80 transition-opacity whitespace-nowrap"
           >
             {t.getInTouch}
           </button>
