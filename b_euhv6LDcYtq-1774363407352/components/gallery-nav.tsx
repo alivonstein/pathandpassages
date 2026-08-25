@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 // Import full project proposal content
 import { projectProposalContent, projectProposalTables } from "@/lib/proposal-content"
+import { useLanguage, type Lang } from "@/components/language-provider"
+import { galleryOverridesES } from "@/lib/gallery-content-es"
 
 // Table component for styled tables with alternating colors
 function StyledTable({ headers, rows }: { headers: string[], rows: string[][] }) {
@@ -515,6 +517,20 @@ Now just imagine these are your eyes that are looking back, your funds that made
   },
 ]
 
+// Merge Spanish overrides onto the English base item. Any field not yet
+// translated falls back to the English content so nothing ever renders blank.
+function localizeItem(item: typeof galleryItems[0], lang: Lang): typeof galleryItems[0] {
+  if (lang !== "es") return item
+  const override = galleryOverridesES[item.id]
+  if (!override) return item
+  return {
+    ...item,
+    title: override.title ?? item.title,
+    content: override.content ?? item.content,
+    tables: override.tables ?? item.tables,
+  }
+}
+
 // Width ratios for left and right columns per row - creates the meandering river/path
 // Values represent the ratio split of available space (after 49px gap)
 const rowWidths = [
@@ -648,37 +664,44 @@ function LightboxModal({
 }
 
 export function GalleryNav() {
+  const { lang } = useLanguage()
   const [hoveredId, setHoveredId] = useState<string | null>(null)
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const openLightbox = (item: typeof galleryItems[0]) => {
+  // Localize all items for the active language (falls back to English)
+  const localizedItems = galleryItems.map((item) => localizeItem(item, lang))
+  // Derive the currently open item so switching language updates an open lightbox live
+  const selectedItem = selectedId
+    ? localizedItems.find((item) => item.id === selectedId) ?? null
+    : null
+
+  const openLightbox = (id: string) => {
     if (!mounted) return
-    setSelectedItem(item)
+    setSelectedId(id)
   }
 
   const closeLightbox = () => {
     if (!mounted) return
-    setSelectedItem(null)
+    setSelectedId(null)
   }
 
   // Listen for custom event from header menu
   useEffect(() => {
     if (!mounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
-      const item = galleryItems.find(g => g.id === e.detail)
-      if (item) openLightbox(item)
+      if (galleryItems.some((g) => g.id === e.detail)) setSelectedId(e.detail)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
   }, [mounted])
 
   // Filter out project-proposal from gallery display (it's accessed via hero and menu only)
-  const displayItems = galleryItems.filter(item => item.id !== "project-proposal")
+  const displayItems = localizedItems.filter(item => item.id !== "project-proposal")
 
   return (
     <>
@@ -695,7 +718,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => openLightbox(displayItems[rowIndex * 2])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2].id)}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 8px gap */}
@@ -705,7 +728,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => openLightbox(displayItems[rowIndex * 2 + 1])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2 + 1].id)}
                 />
               </div>
             </div>
@@ -720,7 +743,7 @@ export function GalleryNav() {
           {displayItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => openLightbox(item)}
+              onClick={() => openLightbox(item.id)}
               className="relative aspect-square overflow-hidden group"
             >
               <Image

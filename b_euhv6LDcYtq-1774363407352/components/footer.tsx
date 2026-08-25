@@ -2,8 +2,12 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
+import { uiStrings } from "@/lib/ui-translations"
 
 export function Footer() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [mounted, setMounted] = useState(false)
@@ -51,7 +55,7 @@ export function Footer() {
         <div className="flex items-center justify-between gap-8">
           <div className="flex items-center gap-6">
             <h2 className="text-lg text-white font-medium tracking-widest lowercase">
-              get in touch
+              {t.getInTouch}
             </h2>
             <a
               href="mailto:hello@pathandpassages.com"
@@ -68,26 +72,26 @@ export function Footer() {
           </div>
 
           {isSubmitted ? (
-            <p className="text-white text-sm">Thank you. We will be in touch soon.</p>
+            <p className="text-white text-sm">{t.thankYouShort}</p>
           ) : (
             <form onSubmit={handleSubmit} className="flex items-start gap-3">
               <input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder={t.name}
                 required
                 className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-32"
               />
               <input
                 type="email"
                 name="email"
-                placeholder="Email"
+                placeholder={t.email}
                 required
                 className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-40"
               />
               <textarea
                 name="message"
-                placeholder="Message"
+                placeholder={t.message}
                 required
                 rows={1}
                 className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-all resize-none hover:rows-3 focus:h-20"
@@ -98,7 +102,7 @@ export function Footer() {
                 disabled={isSubmitting}
                 className="bg-[#3d4f3a] hover:bg-[#3d4f3a]/90 text-white text-sm px-6 py-2"
               >
-                {isSubmitting ? "..." : "Send"}
+                {isSubmitting ? "..." : t.send}
               </Button>
             </form>
           )}
@@ -119,7 +123,7 @@ export function Footer() {
           rel="noopener noreferrer"
           className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
         >
-          asturias, northern spain
+          {t.location}
         </a>
       </div>
     </footer>
