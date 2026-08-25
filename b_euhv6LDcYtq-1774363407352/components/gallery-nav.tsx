@@ -43,7 +43,7 @@ function StyledTable({ headers, rows }: { headers: string[], rows: string[][] })
 }
 
 // Parse and render structured content
-function ContentRenderer({ content, tables }: { content: string, tables?: { marker: string, headers: string[], rows: string[][] }[] }) {
+function ContentRenderer({ content, tables, lang }: { content: string, tables?: { marker: string, headers: string[], rows: string[][] }[], lang: Lang }) {
   
   // Function to render a text block with proper formatting
   const renderTextBlock = (text: string, blockKey: string) => {
@@ -55,13 +55,18 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       
       // Check if it's a section header (short line, no bullet, often ends with colon or is title-like)
       // Exclude specific lines that should be small text
-      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
+      const isSmallText = lang === "es"
+        ? trimmedPara.match(/^(Nuestro enfoque se apoya en tres pilares:|Estancias de entre uno y seis meses con:|Ali von Stein)/i)
+        : trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
+      const headerPrefixMatch = lang === "es"
+        ? trimmedPara.match(/^(El |La |Los |Las |Una |Preparar |Estructuras|Cualificación|Puntos Únicos|Entorno|Capacidad|Aspectos Financieros|Presupuesto|Gastos Operativos|Plan de Crecimiento|Beneficios para|Llamada a la Acción|Conclusión|I+ - )/i)
+        : trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i)
       const isHeader = (
         !isSmallText &&
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
-        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
-         trimmedPara.match(/^\d+\.\s/))
+        !trimmedPara.endsWith('.') &&
+        (headerPrefixMatch || trimmedPara.match(/^\d+\.\s/))
       )
       
       // Check if paragraph contains bullet points
@@ -586,10 +591,12 @@ function GalleryImage({
 // Simple portal-based modal component
 function LightboxModal({ 
   item, 
-  onClose 
+  onClose,
+  lang
 }: { 
   item: typeof galleryItems[0] | null
   onClose: () => void 
+  lang: Lang
 }) {
   const [mounted, setMounted] = useState(false)
   
@@ -655,7 +662,7 @@ function LightboxModal({
         
         {/* Content below */}
         <div className="w-full max-w-3xl">
-          <ContentRenderer content={item.content} tables={item.tables} />
+          <ContentRenderer content={item.content} tables={item.tables} lang={lang} />
         </div>
       </div>
     </div>,
@@ -764,7 +771,7 @@ export function GalleryNav() {
       </section>
 
       {/* Lightbox Modal using React Portal */}
-      <LightboxModal item={selectedItem} onClose={closeLightbox} />
+      <LightboxModal item={selectedItem} onClose={closeLightbox} lang={lang} />
     </>
   )
 }
