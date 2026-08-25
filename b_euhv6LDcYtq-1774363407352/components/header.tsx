@@ -3,29 +3,21 @@
 // Updated: Force cache clear
 import { useState, useEffect } from "react"
 import { cn } from "@/lib/utils"
+import { useLanguage } from "@/components/language-provider"
+import { uiStrings, navLinks } from "@/lib/ui-translations"
 
-const topNavItem = { id: "project-proposal", label: "project proposal" }
-
-const topicNavLinks = [
-  { id: "problem-science", label: "the problem   -   the science" },
-  { id: "gap-vision", label: "the gap   -   the vision" },
-  { id: "philosophy-model", label: "the philosophy   -   the model" },
-  { id: "structures-solutions", label: "structures and solutions" },
-  { id: "qualification-experience", label: "qualification and experience" },
-  { id: "unique-points", label: "unique points and methods" },
-  { id: "place-environment", label: "place, environment and logistics" },
-  { id: "financials-growth", label: "financials and growth plan" },
-  { id: "marketing-benefits", label: "marketing and benefits" },
-  { id: "call-to-action", label: "call to action and conclusion" },
-]
+const topNavItem = { id: "project-proposal" }
 
 export function Header() {
+  const { lang, toggleLang } = useLanguage()
+  const t = uiStrings[lang]
   const [isScrolled, setIsScrolled] = useState(false)
   const [isHidden, setIsHidden] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isContactOpen, setIsContactOpen] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -35,12 +27,14 @@ export function Header() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setHasError(false)
     
     const formData = new FormData(e.currentTarget)
     const data = {
       name: formData.get('name'),
       email: formData.get('email'),
       message: formData.get('message'),
+      lang,
     }
 
     try {
@@ -52,9 +46,12 @@ export function Header() {
       
       if (response.ok) {
         setIsSubmitted(true)
+      } else {
+        setHasError(true)
       }
     } catch (error) {
       console.error('Failed to send:', error)
+      setHasError(true)
     }
     
     setIsSubmitting(false)
@@ -82,7 +79,7 @@ export function Header() {
       <div className="w-full px-6 md:px-10 flex items-center justify-between">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="text-white text-lg font-medium tracking-widest lowercase hover:opacity-80 transition-opacity"
+          className="text-white text-base md:text-lg font-medium tracking-wide md:tracking-widest lowercase hover:opacity-80 transition-opacity"
         >
           pathandpassages
         </button>
@@ -91,7 +88,7 @@ export function Header() {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="text-white hover:opacity-80 transition-opacity flex flex-col justify-center items-center gap-2"
-            aria-label="Toggle menu"
+            aria-label={t.toggleMenu}
           >
             <span 
               className={cn(
@@ -122,16 +119,16 @@ export function Header() {
                 }}
                 className="text-white/70 hover:text-white text-lg font-normal tracking-widest transition-colors whitespace-nowrap text-left"
               >
-                {topNavItem.label}
+                {t.projectProposal}
               </button>
               
               {/* Topics header */}
               <span className="text-white/50 text-sm font-light tracking-widest mt-2">
-                topics
+                {t.topics}
               </span>
               
               {/* Topic links */}
-              {topicNavLinks.map((link) => (
+              {navLinks.map((link) => (
                 <button
                   key={link.id}
                   onClick={() => {
@@ -140,19 +137,37 @@ export function Header() {
                   }}
                   className="text-white/70 hover:text-white text-lg font-normal tracking-widest transition-colors whitespace-nowrap text-left"
                 >
-                  {link.label}
+                  {link.label[lang]}
                 </button>
               ))}
             </nav>
           </div>
         </div>
 
-        <button
-          onClick={() => setIsContactOpen(!isContactOpen)}
-          className="text-white text-lg font-medium tracking-wide hover:opacity-80 transition-opacity"
-        >
-          get in touch
-        </button>
+        <div className="flex items-center gap-3 md:gap-6">
+          {/* Language toggle */}
+          <button
+            onClick={toggleLang}
+            aria-label={t.switchToLabel}
+            title={t.switchToLabel}
+            className="flex items-center text-xs md:text-sm font-medium tracking-wider md:tracking-widest uppercase select-none shrink-0"
+          >
+            <span className={cn("transition-opacity", lang === "en" ? "text-white" : "text-white/40 hover:text-white/70")}>
+              EN
+            </span>
+            <span className="text-white/30 mx-0.5 md:mx-1">/</span>
+            <span className={cn("transition-opacity", lang === "es" ? "text-white" : "text-white/40 hover:text-white/70")}>
+              ES
+            </span>
+          </button>
+
+          <button
+            onClick={() => setIsContactOpen(!isContactOpen)}
+            className="text-white text-base md:text-lg font-medium tracking-wide hover:opacity-80 transition-opacity whitespace-nowrap"
+          >
+            {t.getInTouch}
+          </button>
+        </div>
       </div>
 
       {/* Contact Popup */}
@@ -165,7 +180,7 @@ export function Header() {
             className="bg-[#3d4f3a] p-6 rounded-sm shadow-2xl max-w-xs mx-4"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-white text-base font-light tracking-widest mb-4">get in touch</h3>
+            <h3 className="text-white text-base font-light tracking-widest mb-4">{t.getInTouch}</h3>
             <a 
               href="mailto:hello@pathandpassages.com"
               className="block text-white/80 hover:text-white text-sm tracking-wide mb-1 transition-colors"
@@ -180,36 +195,39 @@ export function Header() {
             </a>
             
             {isSubmitted ? (
-              <p className="text-white/80 text-sm mb-4">Thank you. We will be in touch soon.</p>
+              <p className="text-white/80 text-sm mb-4">{t.thankYouShort}</p>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-2 mb-4">
                 <input
                   type="text"
                   name="name"
-                  placeholder="Name"
+                  placeholder={t.name}
                   required
                   className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-full"
                 />
                 <input
                   type="email"
                   name="email"
-                  placeholder="Email"
+                  placeholder={t.email}
                   required
                   className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors w-full"
                 />
                 <textarea
                   name="message"
-                  placeholder="Message"
+                  placeholder={t.message}
                   required
                   rows={3}
                   className="bg-transparent border border-white/20 rounded px-3 py-2 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-white/50 transition-colors resize-none w-full"
                 />
+                {hasError && (
+                  <p className="text-red-300 text-xs">{t.sendError}</p>
+                )}
                 <button
                   type="submit"
                   disabled={isSubmitting}
                   className="bg-white/10 hover:bg-white/20 text-white text-sm px-4 py-2 rounded transition-colors"
                 >
-                  {isSubmitting ? "..." : "Send"}
+                  {isSubmitting ? "..." : t.send}
                 </button>
               </form>
             )}
@@ -218,7 +236,7 @@ export function Header() {
               onClick={() => setIsContactOpen(false)}
               className="text-white/50 hover:text-white text-xs tracking-widest transition-colors"
             >
-              close
+              {t.close}
             </button>
           </div>
         </div>

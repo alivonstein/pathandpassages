@@ -2,12 +2,17 @@
 
 import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/components/language-provider"
+import { uiStrings } from "@/lib/ui-translations"
 
 export function Contact() {
+  const { lang } = useLanguage()
+  const t = uiStrings[lang]
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [hasError, setHasError] = useState(false)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -36,9 +41,34 @@ export function Contact() {
     e.preventDefault()
     if (!mounted) return
     setIsSubmitting(true)
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    setHasError(false)
+
+    const formData = new FormData(e.currentTarget)
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      lang,
+    }
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+      } else {
+        setHasError(true)
+      }
+    } catch (error) {
+      console.error('Failed to send:', error)
+      setHasError(true)
+    }
+
     setIsSubmitting(false)
-    setIsSubmitted(true)
   }
 
   return (
@@ -55,7 +85,7 @@ export function Contact() {
         >
           <div className="max-w-md">
             <h2 className="text-sm md:text-lg text-white/70 font-light tracking-wide mb-1">
-              get in touch
+              {t.getInTouch}
             </h2>
             <a
               href="mailto:hello@pathandpassages.com"
@@ -73,10 +103,10 @@ export function Contact() {
             {isSubmitted ? (
               <div className="text-center py-12">
                 <h3 className="text-2xl text-white font-medium mb-3">
-                  Thank You
+                  {t.thankYouTitle}
                 </h3>
                 <p className="text-white/70">
-                  We will be in touch soon.
+                  {t.thankYouBody}
                 </p>
               </div>
             ) : (
@@ -86,7 +116,7 @@ export function Contact() {
                     htmlFor="name"
                     className="block text-sm text-white/70 mb-2"
                   >
-                    Name
+                    {t.name}
                   </label>
                   <input
                     type="text"
@@ -102,7 +132,7 @@ export function Contact() {
                     htmlFor="email"
                     className="block text-sm text-white/70 mb-2"
                   >
-                    Email
+                    {t.email}
                   </label>
                   <input
                     type="email"
@@ -118,7 +148,7 @@ export function Contact() {
                     htmlFor="message"
                     className="block text-sm text-white/70 mb-2"
                   >
-                    Message
+                    {t.message}
                   </label>
                   <textarea
                     id="message"
@@ -129,12 +159,16 @@ export function Contact() {
                   />
                 </div>
 
+                {hasError && (
+                  <p className="text-red-300 text-sm">{t.sendError}</p>
+                )}
+
                 <Button
                   type="submit"
                   disabled={isSubmitting}
                   className="w-full bg-[#3d4f3a] hover:bg-[#3d4f3a]/90 text-white"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  {isSubmitting ? t.sending : t.sendMessage}
                 </Button>
               </form>
             )}

@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 // Import full project proposal content
 import { projectProposalContent, projectProposalTables } from "@/lib/proposal-content"
+import { useLanguage, type Lang } from "@/components/language-provider"
+import { galleryOverridesES } from "@/lib/gallery-content-es"
 
 // Table component for styled tables with alternating colors
 function StyledTable({ headers, rows }: { headers: string[], rows: string[][] }) {
@@ -41,7 +43,7 @@ function StyledTable({ headers, rows }: { headers: string[], rows: string[][] })
 }
 
 // Parse and render structured content
-function ContentRenderer({ content, tables }: { content: string, tables?: { marker: string, headers: string[], rows: string[][] }[] }) {
+function ContentRenderer({ content, tables, lang }: { content: string, tables?: { marker: string, headers: string[], rows: string[][] }[], lang: Lang }) {
   
   // Function to render a text block with proper formatting
   const renderTextBlock = (text: string, blockKey: string) => {
@@ -53,13 +55,18 @@ function ContentRenderer({ content, tables }: { content: string, tables?: { mark
       
       // Check if it's a section header (short line, no bullet, often ends with colon or is title-like)
       // Exclude specific lines that should be small text
-      const isSmallText = trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
+      const isSmallText = lang === "es"
+        ? trimmedPara.match(/^(Nuestro enfoque se apoya en tres pilares:|Estancias de entre uno y seis meses con:|Ali von Stein)/i)
+        : trimmedPara.match(/^(Our approach is built on three pillars:|Activities that can be offered for support and structure:|Ali von Stein|A slow but scenic local train|V - Sustainability|Program and Activities)/i)
+      const headerPrefixMatch = lang === "es"
+        ? trimmedPara.match(/^(El |La |Los |Las |Una |Preparar |Estructuras|Cualificación|Puntos Únicos|Entorno|Capacidad|Aspectos Financieros|Presupuesto|Gastos Operativos|Plan de Crecimiento|Beneficios para|Llamada a la Acción|Conclusión|I+ - )/i)
+        : trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i)
       const isHeader = (
         !isSmallText &&
         trimmedPara.length < 80 && 
         !trimmedPara.startsWith('•') && 
-        (trimmedPara.match(/^(The |A |I+ - |Preparing|Grounding|Budget|Capacity|Experience|Structures and Solutions|Call to Action|Conclusion|Unique Points and Benefits|Place and Environment|Financials|Benefits and Marketing|Qualification and Experience)/i) ||
-         trimmedPara.match(/^\d+\.\s/))
+        !trimmedPara.endsWith('.') &&
+        (headerPrefixMatch || trimmedPara.match(/^\d+\.\s/))
       )
       
       // Check if paragraph contains bullet points
@@ -515,6 +522,20 @@ Now just imagine these are your eyes that are looking back, your funds that made
   },
 ]
 
+// Merge Spanish overrides onto the English base item. Any field not yet
+// translated falls back to the English content so nothing ever renders blank.
+function localizeItem(item: typeof galleryItems[0], lang: Lang): typeof galleryItems[0] {
+  if (lang !== "es") return item
+  const override = galleryOverridesES[item.id]
+  if (!override) return item
+  return {
+    ...item,
+    title: override.title ?? item.title,
+    content: override.content ?? item.content,
+    tables: override.tables ?? item.tables,
+  }
+}
+
 // Width ratios for left and right columns per row - creates the meandering river/path
 // Values represent the ratio split of available space (after 49px gap)
 const rowWidths = [
@@ -570,10 +591,12 @@ function GalleryImage({
 // Simple portal-based modal component
 function LightboxModal({ 
   item, 
-  onClose 
+  onClose,
+  lang
 }: { 
   item: typeof galleryItems[0] | null
   onClose: () => void 
+  lang: Lang
 }) {
   const [mounted, setMounted] = useState(false)
   
@@ -639,7 +662,7 @@ function LightboxModal({
         
         {/* Content below */}
         <div className="w-full max-w-3xl">
-          <ContentRenderer content={item.content} tables={item.tables} />
+          <ContentRenderer content={item.content} tables={item.tables} lang={lang} />
         </div>
       </div>
     </div>,
@@ -648,37 +671,44 @@ function LightboxModal({
 }
 
 export function GalleryNav() {
+  const { lang } = useLanguage()
   const [hoveredId, setHoveredId] = useState<string | null>(null)
-  const [selectedItem, setSelectedItem] = useState<typeof galleryItems[0] | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const openLightbox = (item: typeof galleryItems[0]) => {
+  // Localize all items for the active language (falls back to English)
+  const localizedItems = galleryItems.map((item) => localizeItem(item, lang))
+  // Derive the currently open item so switching language updates an open lightbox live
+  const selectedItem = selectedId
+    ? localizedItems.find((item) => item.id === selectedId) ?? null
+    : null
+
+  const openLightbox = (id: string) => {
     if (!mounted) return
-    setSelectedItem(item)
+    setSelectedId(id)
   }
 
   const closeLightbox = () => {
     if (!mounted) return
-    setSelectedItem(null)
+    setSelectedId(null)
   }
 
   // Listen for custom event from header menu
   useEffect(() => {
     if (!mounted) return
     const handleOpenLightbox = (e: CustomEvent<string>) => {
-      const item = galleryItems.find(g => g.id === e.detail)
-      if (item) openLightbox(item)
+      if (galleryItems.some((g) => g.id === e.detail)) setSelectedId(e.detail)
     }
     window.addEventListener("openLightbox" as any, handleOpenLightbox)
     return () => window.removeEventListener("openLightbox" as any, handleOpenLightbox)
   }, [mounted])
 
   // Filter out project-proposal from gallery display (it's accessed via hero and menu only)
-  const displayItems = galleryItems.filter(item => item.id !== "project-proposal")
+  const displayItems = localizedItems.filter(item => item.id !== "project-proposal")
 
   return (
     <>
@@ -695,7 +725,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => openLightbox(displayItems[rowIndex * 2])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2].id)}
                 />
               </div>
               {/* Right image - calc width to fill edge to edge with 8px gap */}
@@ -705,7 +735,7 @@ export function GalleryNav() {
                   className="w-full h-full"
                   hoveredId={hoveredId}
                   setHoveredId={setHoveredId}
-                  onClick={() => openLightbox(displayItems[rowIndex * 2 + 1])}
+                  onClick={() => openLightbox(displayItems[rowIndex * 2 + 1].id)}
                 />
               </div>
             </div>
@@ -720,7 +750,7 @@ export function GalleryNav() {
           {displayItems.map((item) => (
             <button
               key={item.id}
-              onClick={() => openLightbox(item)}
+              onClick={() => openLightbox(item.id)}
               className="relative aspect-square overflow-hidden group"
             >
               <Image
@@ -741,7 +771,7 @@ export function GalleryNav() {
       </section>
 
       {/* Lightbox Modal using React Portal */}
-      <LightboxModal item={selectedItem} onClose={closeLightbox} />
+      <LightboxModal item={selectedItem} onClose={closeLightbox} lang={lang} />
     </>
   )
 }
